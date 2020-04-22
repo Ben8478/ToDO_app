@@ -2,8 +2,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <?php include "connect.php";
-        include "verification.php"?>
+  <?php include "include/connect.php";
+        include "include/verification.php"?>
     <title>Endeavor Inventory</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">

@@ -14,15 +14,20 @@ if (isset($_POST['submitL'])){
     
        if(password_verify($password,$hash )){
       
-       }
-    $_SESSION['loggedin'] === true;
+       
+       $_SESSION['user'] = $email;
+      $_SESSION['log'] ="yes";
   header('location:index.php');
 
     }
-
+    else{
+      echo "<script>";
+      echo"alert('Your details are incorrect')";
+      echo"</script>";
+    }
 }
 
-
+}
 
 
 ?>

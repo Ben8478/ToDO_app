@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
   <?php 
-include "connect.php";
-include "validateUser.php";
+include "include/connect.php";
+include "include/validateUser.php";
 ?>
     
     <title>Endeavor Inventory</title>

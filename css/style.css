@@ -3,9 +3,11 @@
 .side_bar {
     height: 100%;
     width: 15%;
-    background-color: #75a8ff;
+    background-image: linear-gradient(to bottom, #75a8ff, #fff175);
     position: fixed;
     border-radius: 8px;
+    -webkit-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
+    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
 }
 
 .side_bar p {
@@ -15,6 +17,7 @@
     font-size: 30px;
     text-align: center;
     text-emphasis: bold;
+    font-family: 'Proza Libre', sans-serif;
 }
 
 .side_bar li a {
@@ -48,28 +51,29 @@
 
 /*sidebar end*/
 
+
+/**************************Main app components***********************************/
+
 .main_app_header {
     margin-top: -30%;
     margin-left: -30%;
-    background-color: #fff475;
     width: 30%;
     text-align: center;
     padding: 3%;
     border-radius: 8px;
-    -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.74);
+    -webkit-box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
+    box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
 }
 
 .main_app_thought_header {
     margin-top: -30%;
     margin-left: -30%;
-    background-color: #fff475;
     width: 50%;
     text-align: center;
     padding: 3%;
     border-radius: 8px;
-    -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.74);
+    -webkit-box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
+    box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
 }
 
 .main_app_thought {
@@ -77,27 +81,26 @@
     display: inline-block;
     margin: auto;
     width: 50%;
-    background-color: #75a8ff;
     padding: 10%;
     margin-top: 12%;
     margin-left: 20%;
     border-radius: 8px;
-    -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
+    -webkit-box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
+    box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
 }
 
 .main_app_today {
     height: auto;
     margin: auto;
     width: 50%;
-    background-color: #75a8ff;
     padding: 10%;
     display: none;
     margin-top: 12%;
     margin-left: 20%;
     border-radius: 8px;
-    -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
+    -webkit-box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
+    box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
+    margin-bottom: 5%;
 }
 
 .header_main {
@@ -110,15 +113,15 @@
     margin-left: auto;
     margin-right: auto;
     width: 40%;
-    border-right: 10px #75a8ff solid;
-    border-left: 10px #75a8ff solid;
-    border-bottom: 10px #75a8ff solid;
+    border-right: 2px #75a8ff solid;
+    border-left: 2px #75a8ff solid;
+    border-bottom: 2px #75a8ff solid;
     text-align: center;
     border-radius: 8px;
 }
 
 .body_main {
-    background-color: #fff475;
+    background-image: linear-gradient(to left, #75a8ff, #fff175);
 }
 
 h1 {
@@ -126,18 +129,21 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
-    border: 10px #75a8ff solid;
+    border: 2px #75a8ff solid;
     text-align: center;
     border-radius: 8px;
     -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
 }
 
+
+/**************************Signn in conent***********************************/
+
 .sign_in {
     margin-top: 5%;
     padding: 3%;
     width: 40%;
-    background-color: #75a8ff;
+    border: 2px solid #75a8ff;
     margin-left: auto;
     margin-right: auto;
     border-radius: 8px;
@@ -149,7 +155,6 @@ h1 {
     font-size: 30px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #fff475;
     text-align: center;
     padding: 10%;
     border-radius: 8px;
@@ -171,7 +176,6 @@ h1 {
     padding-left: 1%;
     padding-right: 1%;
     padding-bottom: 3%;
-    background-color: #75a8ff;
     margin-left: auto;
     margin-right: auto;
     width: 40%;
@@ -191,12 +195,16 @@ h1 {
     box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
 }
 
+
+/**************************Post content***********************************/
+
 .post_title {
     margin-top: 3%;
     height: 50px;
     border-radius: 8px;
     width: 100%;
-    background-color: #fff475;
+    background-color: #fff175;
+    opacity: 0.8;
     -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
 }
@@ -205,6 +213,7 @@ h1 {
     width: 100%;
     height: 100px;
     background-color: white;
+    opacity: 0.8;
     border-radius: 8px;
     -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
@@ -219,6 +228,7 @@ h1 {
 #post_button {
     background-color: #75a8ff;
     border-radius: 8px;
+    border: 1px solid #75a8ff;
 }
 
 .add_post_content {
@@ -238,6 +248,9 @@ h1 {
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.74);
     ;
 }
+
+
+/**************************Media query start***********************************/
 
 @media only screen and (max-width: 600px) {
     h1 {

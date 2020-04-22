@@ -1,9 +1,9 @@
 <?php session_start();?>
-<?php if (isset($_SESSION)===!true){
-header('location:login.php');
-}
-else {
-    
+
+<?php 
+
+if (!isset($_SESSION['log'])){
+    header('location:login.php');
 }
 ?>
 <!doctype html>
@@ -12,7 +12,7 @@ else {
  ?>
 <head>
     <title>Endeavor Inventory</title>
-    <!-- Required meta tags -->
+    <link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="jquery-3.4.1.min.js"></script>
@@ -20,7 +20,7 @@ else {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <?php
-include "userClass.php";
+include "include/userClass.php";
 
 ?>
 
@@ -41,10 +41,10 @@ include "userClass.php";
             <p class="side_bar_content"><a href="#" onclick="show_nextweek()">Next week</a></p>
             <hr class="HL">
             </hr>
-            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method ='get'>
+            
            
-            <button id="btn" onclick="sign_out()"> Log out </button>
-            </form>
+            <button value ="submit" id="btn" onclick="sign_out()"> Log out </button>
+            
         
         </div>
 
@@ -54,22 +54,27 @@ include "userClass.php";
             <p><strong>Positive thought of the day</strong></p>
         </div>
         <div class=post_title>
+        </div>
         <p class="post_content"></p>
-</div>
+
     </div>
+    <!-----------------------------------------------------Today ----------------------------------------->
     <div class="main_app_today" id="main_app_today_id">
         <div class="main_app_header">
             <p><strong>Today</strong></p>
+    </div>
 
 
 
 
-
-        </div>
-        <div class="add_post">
+        
+<div class="add_post">
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <button name="submit" value="submit" type="submit" id="post_button"><img src="images/add_post.png"></button>
-                <?php
+            </form>
+            </div>
+
+            <?php
                 if (isset($_POST['submit']) && $_POST['submit'] == 'submit') :
                 ?>
                     <div>
@@ -85,6 +90,7 @@ include "userClass.php";
                             </form>
                         </div>
                     </div>
+        
                     <?php 
                  endif ?>
                          <?php
@@ -125,8 +131,8 @@ $maxid = $show['MAX(post_no)'];
                     
                 }?>
 
-            </form>
-        </div>
+     
+       
 
         <?php
         $count = 0;
@@ -182,7 +188,7 @@ $maxid = $show['MAX(post_no)'];
 
 
 
-
+<!-----------------------------------------------------Tomorrow ----------------------------------------->
 
     </div>
     <div class="main_app_today" id="main_app_tomorrow_id">
@@ -299,7 +305,9 @@ $maxid = $show['MAX(post_no)'];
         <?php endfor ?>
 
     </div>
-
+<?php 
+echo $_SESSION['user'];
+?>
 </body>
 <script>
     function show_today() {
@@ -328,15 +336,17 @@ $maxid = $show['MAX(post_no)'];
 
 
     }
+
+
     function sign_out(){
     var xhr = new XMLHttpRequest();
-xhr.open('GET','logout.php')
+xhr.open('GET','include/logout.php');
 xhr.onreadystatechange = function(){
     var done = 4;
     var ok = 200;
     if(xhr.readyState === done){
         if (xhr.status === ok ){
-            document.getElementById('btn').innerHTML = this.responseText;
+            console.log(this.responseText);
         }
         else{
         console.log('Error:' + xhr.status);
