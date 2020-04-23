@@ -30,6 +30,11 @@ include "include/userClass.php";
 
         <img class="logo" src="images/logo.png">
         <div id="side_bar_timeline">
+        <hr class="HL">
+            </hr>
+        <p class="side_bar_content"><a href="#" onclick="show_nextweek()">All</a></p>
+         
+            
             <hr class="HL">
             </hr>
             <p class="side_bar_content"><a href="#" onclick="show_today()"> Today</a></p>
@@ -38,10 +43,7 @@ include "include/userClass.php";
             <p class="side_bar_content"><a href="#" onclick="show_tomorrow() ">Tomorrow</a></p>
             <hr class="HL">
             </hr>
-            <p class="side_bar_content"><a href="#" onclick="show_nextweek()">Next week</a></p>
-            <hr class="HL">
-            </hr>
-            
+
            
             <button value ="submit" id="btn" onclick="sign_out()"> Log out </button>
             
@@ -68,7 +70,7 @@ include "include/userClass.php";
 
 
         
-<div class="add_post">
+<div class="add_post" id = "add_post_today">
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <button name="submit" value="submit" type="submit" id="post_button"><img src="images/add_post.png"></button>
             </form>
@@ -169,7 +171,7 @@ $maxid = $show['MAX(post_no)'];
         <?php for ($j = 0; $j < $count; $j++) : ?>
             <?php $row = $result->fetch_assoc() ?>
             <div class=post_title>
-                <p><a href="#"> <?php echo $row['post_title'] ?></a></p>
+                <p><?php echo $row['post_title'] ?></p>
 
             </div>
 
@@ -196,7 +198,7 @@ $maxid = $show['MAX(post_no)'];
             <p><strong> Tomorrow</strong></p>
         </div>
        
-        <div class="add_post">
+        <div id = "add_post_tomorrow" class="add_post">
             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                 <button name="submit" value="submit" type="submit" id="post_button"><img src="images/add_post.png"></button>
             </form>
@@ -242,7 +244,7 @@ $maxid = $show['MAX(post_no)'];
         <?php for ($j = 0; $j < $countT; $j++) : ?>
             <?php $row = $result->fetch_assoc() ?>
             <div class=post_title>
-                <p><a href="#"> <?php echo $row['post_title'] ?></a></p>
+                <p><?php echo $row['post_title'] ?></p>
 
             </div>
 
@@ -259,55 +261,7 @@ $maxid = $show['MAX(post_no)'];
    </div>
         </div>
     <!---********************************Next week***************************************************-->
-    <div class="main_app_today" id="main_app_nextweek_id">
-        <div class="main_app_header">
-            <p><strong> Next week</strong></p>
-        </div>
-        <button name="submit" value="submit" type="submit" id="post_button"><img src="images/add_post.png"></button>
-        <?php
-        $tom_3 = date('Y-m-d', strtotime('+2day'));
-        $tom_4 = date('Y-m-d', strtotime('+3day'));
-        $tom_5 = date('Y-m-d', strtotime('+4day'));
-        $tom_6 = date('Y-m-d', strtotime('+5day'));
-        $tom_7 = date('Y-m-d', strtotime('+6day'));
-        $week = array($tom_3, $tom_4, $tom_5, $tom_6, $tom_7);
-        var_dump($week);
-
-        $countW = 0;
-        foreach ($dates as $thedates) {
-            foreach ($week as $days) {
-                for ($j = 0; $j < 5; $j++)
-                    if ($thedates == $days[$j]) {
-                        $countW++;
-                        $chosendate . [$j] = $days[$j];
-                    }
-            }
-        }
-        echo $chosendate1;
-        ?>
-        <?php for ($x = 1; $x <= $countW; $x++) : ?>
-            <?php $sql = "SELECT all*  FROM  app where date = '2020-04-18'";
-
-            $result = $mysqli->query($sql); ?>
-        <?php endfor ?>
-        <?php for ($j = 1; $j <= $countW; $j++) : ?>
-            <?php $row = $result->fetch_assoc() ?>
-            <div class=post_title>
-                <p><a href="#"> <?php echo $row['post_title'] ?></a></p>
-
-            </div>
-
-            <div>
-                <span>
-                    <p class="post_content"><?php echo $row['post'] ?></p>
-                </span>
-            </div>
-        <?php endfor ?>
-
-    </div>
-<?php 
-echo $_SESSION['user'];
-?>
+    
 </body>
 <script>
     function show_today() {
@@ -336,8 +290,23 @@ echo $_SESSION['user'];
 
 
     }
+    function show_nextweek() {
+        document.getElementById('add_post_today').style.display = "none";
+        document.getElementById('main_app_today_id').style.display = "none";
+        document.getElementById('main_app_tomorrow_id').style.display = "none";
+        document.getElementById('main_app_nextweek_id').style.display = "inline-block";
 
 
+    }
+
+    function show_nextweek() {
+        document.getElementById('main_app_thought_id').style.display = "none";
+        document.getElementById('main_app_today_id').style.display = "none";
+        document.getElementById('main_app_tomorrow_id').style.display = "none";
+        document.getElementById('main_app_nextweek_id').style.display = "inline-block";
+
+
+    }
     function sign_out(){
     var xhr = new XMLHttpRequest();
 xhr.open('GET','include/logout.php');
