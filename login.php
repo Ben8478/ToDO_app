@@ -13,11 +13,11 @@
   </head>
   <body class ="body_main" id="body_main_id">
     <div class = "header_main">
-    <h1>Endeavor Inventory</h1>
+    <h1>Endeavor Inventory<br>A place to organize all your endeavors</h1>
+   
+
     </div>
-    <div class="subheader_main">
-<h5>A place to organize all your endeavors</h5>
-</div>
+  
 <div class="sign_in" id = "sign_in_id">
 <strong><p class="sign_in_text">Already organized? </p></strong>
 <button class="sign_in_button" onclick="show_pop()">Sign in</button>

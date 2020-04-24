@@ -1,15 +1,17 @@
-<?php session_start();?>
+<?php session_start(); ?>
 
-<?php 
+<?php
 
-if (!isset($_SESSION['log'])){
+if (!isset($_SESSION['log'])) {
     header('location:login.php');
 }
+$id = $_SESSION['id'];
 ?>
 <!doctype html>
 <html lang="en"><?php
 
- ?>
+                ?>
+
 <head>
     <title>Endeavor Inventory</title>
     <link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
@@ -30,11 +32,11 @@ include "include/userClass.php";
 
         <img class="logo" src="images/logo.png">
         <div id="side_bar_timeline">
-        <hr class="HL">
+            <hr class="HL">
             </hr>
-        <p class="side_bar_content"><a href="#" onclick="show_nextweek()">All</a></p>
-         
-            
+            <p id="start" class="side_bar_content"><a href="#" onclick="show_All()">All</a></p>
+
+
             <hr class="HL">
             </hr>
             <p class="side_bar_content"><a href="#" onclick="show_today()"> Today</a></p>
@@ -44,97 +46,120 @@ include "include/userClass.php";
             <hr class="HL">
             </hr>
 
-           
-            <button value ="submit" id="btn" onclick="sign_out()"> Log out </button>
-            
-        
+
+            <button value="submit" id="btn" onclick="sign_out()"> Log out </button>
+
+
         </div>
 
     </div>
-    <div class="main_app_thought" id="main_app_thought_id">
-        <div class="main_app_thought_header">
-            <p><strong>Positive thought of the day</strong></p>
+    <div class="welcome" id="welcome">
+        <h1>Welcome to Endeavor inventory.</h1>
+    </div>
+
+    <div class="mission_text" id="mission_text">
+        <p>Dictionary.com describes an Endeavor as something someone does or something someone has an effect on.My hope is that this application
+            will be able to help you to organize those do's and effects you have to be as productive in you'r everyday life as possible.<br> <br>~ Ben (Founder of the Endeavor Inventory)</p>
+        <button onclick="show_All()" name="submit" value="submit" type="submit" id="post_button">Let's Get Started!</button>
+    </div>
+
+
+
+
+    <?php
+    $highestvalue = "SELECT MAX(list_no) from app where UserId='$id'";
+    $high = $mysqli->query($highestvalue);
+    $show = $high->fetch_assoc();
+    $maxid = $show['MAX(list_no)']
+
+
+
+
+    ?>
+    <div class="main_app_thought" id="All_notes">
+        <div class="main_app_header">
+            <p><strong>All your todo's</strong></p>
         </div>
         <div class=post_title>
+            <p><strong>All Endeavors</strong></p>
+
         </div>
-        <p class="post_content"></p>
+        <div class="post_content">
+            <?php for ($a = 0; $a <= $maxid; $a++) : ?>
+                <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";
+
+                $resultA = $mysqli->query($sqlA); ?>
+            <?php endfor ?>
+            <?php for ($b = 0; $b <= $maxid; $b++) : ?>
+                <?php $rowA = $resultA->fetch_assoc() ?>
+
+
+
+                <span>
+                    <li><?php echo $rowA['post'] ?></li>
+                </span>
+
+            <?php endfor ?>
+            <div class="add_post" id="add_post_today">
+
+                <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()">Add Endeavor</button>
+
+                <?php echo $maxid; ?>
+            </div>
+            <div>
+                <div id="add_postA" class="add_post_content">
+                    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                        <span class="input-group-text" id="basic-addon1">Title</span>
+                        <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
+
+                        <span class="input-group-text">Description</span>
+                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
+                        <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     </div>
     <!-----------------------------------------------------Today ----------------------------------------->
     <div class="main_app_today" id="main_app_today_id">
         <div class="main_app_header">
             <p><strong>Today</strong></p>
-    </div>
+        </div>
 
 
 
 
-        
-<div class="add_post" id = "add_post_today">
-            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-                <button name="submit" value="submit" type="submit" id="post_button"><img src="images/add_post.png"></button>
-            </form>
-            </div>
 
-            <?php
-                if (isset($_POST['submit']) && $_POST['submit'] == 'submit') :
-                ?>
-                    <div>
-                        <div class="add_post_content">
-                            <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-                                <span class="input-group-text" id="basic-addon1">Title</span>
-                                <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
-                                
-                                    <span class="input-group-text">Description</span>
-                                    <textarea rows = '5'name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                                    <input name="date" class="form-control" type="date" value ="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
-                                    <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
-                            </form>
-                        </div>
-                    </div>
-        
-                    <?php 
-                 endif ?>
-                         <?php
-     $highestvalue = "SELECT MAX(post_no) from app";
-     $high = $mysqli->query($highestvalue);
-     $show = $high->fetch_assoc();
-$maxid = $show['MAX(post_no)'];
-  echo "<br>".$maxid;
-    
-    
-   
-    ?>
-                    <?php if (isset($_POST['post_add']) && $_POST['post_add'] =='post_add') {
-              
-                $title =$_POST['title'];
-                $content =$_POST['content'];
-                $date = $_POST['date'];
-                $sqlcheck = " SELECT post FROM app where UserId ='4' and post = '$content'";
-                $sqlAdd ="INSERT INTO `app` (`UserId`, `post_title`, `post`, `date`, `post_no`) VALUES ('4', '$title', '$content', '$date', NULL); ";
-                 $result =$mysqli->query($sqlcheck);
-                
-                  if($result->num_rows > 0){
-                   echo '<script language ="javascript">';
-                    echo 'alert("This note already exists")';
-                    echo '</script>';
-                 }
-                 else{
-                    $mysqli->query($sqlAdd)
-;                    echo "nope";
-                    $maxid++;
-                 }
-               
 
-              
-                
-                    
-                        
-                    
-                }?>
 
-     
-       
+
+
+        <?php if (isset($_POST['post_add']) && $_POST['post_add'] == 'post_add') {
+
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+            $date = $_POST['date'];
+            $sqlcheck = " SELECT post FROM app where UserId ='$id' and post = '$content'";
+            $sqlAdd = "INSERT INTO `app` (`UserId`, `post_title`, `post`, `date`, `post_no`) VALUES ('4', '$title', '$content', '$date', NULL); ";
+            $result = $mysqli->query($sqlcheck);
+
+            if ($result->num_rows > 0) {
+                echo '<script language ="javascript">';
+                echo 'alert("This note already exists")';
+                echo '</script>';
+            } else {
+                $mysqli->query($sqlAdd);
+                echo "nope";
+                $maxid++;
+            }
+        } ?>
+
+
+
 
         <?php
         $count = 0;
@@ -142,7 +167,7 @@ $maxid = $show['MAX(post_no)'];
         $today = date('Y-m-d');
 
         $dates = array();
-        $sqldate = "SELECT date  FROM  app where UserId ='4' ";
+        $sqldate = "SELECT date  FROM  app  where UserId = '$id'";
 
         $result = $mysqli->query($sqldate);
         if ($result->num_rows > 0) {
@@ -160,71 +185,70 @@ $maxid = $show['MAX(post_no)'];
         }
 
         ?>
+        <div class=post_title>
+            <p><strong><?php echo $today; ?></strong></p>
+
+        </div>
+
+        <div class="post_content">
+
+            <?php for ($x = 0; $x < $count; $x++) : ?>
+                <?php $sql = "SELECT all*  FROM  app where date = '$today' and UserId ='$id'";
+
+                $result = $mysqli->query($sql); ?>
+            <?php endfor ?>
+            <?php for ($j = 0; $j < $count; $j++) : ?>
+                <?php $row = $result->fetch_assoc() ?>
 
 
 
-        <?php for ($x = 0; $x < $count; $x++) : ?>
-            <?php $sql = "SELECT all*  FROM  app where date = '$today'";
+                <span>
+                    <li><?php echo $row['post'] ?></li>
+                </span>
 
-            $result = $mysqli->query($sql); ?>
-        <?php endfor ?>
-        <?php for ($j = 0; $j < $count; $j++) : ?>
-            <?php $row = $result->fetch_assoc() ?>
-            <div class=post_title>
-                <p><?php echo $row['post_title'] ?></p>
+            <?php endfor ?>
+
+
+            <div class="add_post" id="add_post_today">
+
+                <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavor()">Add Endeavor</button>
 
             </div>
+
+
 
             <div>
-                <span>
-                    <p class="post_content"><?php echo $row['post'] ?></p>
-                </span>
+                <div id="add_post" class="add_post_content">
+                    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                        <span class="input-group-text" id="basic-addon1">Title</span>
+                        <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
+
+                        <span class="input-group-text">Description</span>
+                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
+                        <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
+                    </form>
+                </div>
             </div>
-        <?php endfor ?>
+
+        </div>
 
 
 
-
-
-
-
-
-
-<!-----------------------------------------------------Tomorrow ----------------------------------------->
+        <!-----------------------------------------------------Tomorrow ----------------------------------------->
 
     </div>
     <div class="main_app_today" id="main_app_tomorrow_id">
         <div class="main_app_header">
             <p><strong> Tomorrow</strong></p>
         </div>
-       
-        <div id = "add_post_tomorrow" class="add_post">
-            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-                <button name="submit" value="submit" type="submit" id="post_button"><img src="images/add_post.png"></button>
-            </form>
-            </div>
-            </form>
-                <?php
-                if (isset($_POST['submit']) && $_POST['submit'] == 'submit') :
-                ?>
-                    <div>
-                        <div class="add_post_content">
-                            <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-                                <span class="input-group-text" id="basic-addon1">Title</span>
-                                <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
-                                
-                                    <span class="input-group-text">Description</span>
-                                    <textarea rows = '5'name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                                    <input name="date" class="form-control" type="date" value ="<?php echo date("Y-m-d",strtotime('+1day')) ?>" max="<?php echo date("Y-m-d",strtotime('+1day')); ?>">
-                                    <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
-                            </form>
-                </div>
-                        </div>
-                    
-               
-                   
-                    <?php 
-                 endif ?>
+
+
+
+
+
+
+
         <?php
         $tomorrow = date('Y-m-d', strtotime('+1day'));
         $countT = 0;
@@ -236,93 +260,131 @@ $maxid = $show['MAX(post_no)'];
 
 
         ?>
-        <?php for ($x = 0; $x < $countT; $x++) : ?>
-            <?php $sql = "SELECT all*  FROM  app where date = '$tomorrow'";
-
-            $result = $mysqli->query($sql); ?>
-        <?php endfor ?>
-        <?php for ($j = 0; $j < $countT; $j++) : ?>
-            <?php $row = $result->fetch_assoc() ?>
-            <div class=post_title>
-                <p><?php echo $row['post_title'] ?></p>
-
-            </div>
-
-            <div>
-                <span>
-                    <p class="post_content"><?php echo $row['post'] ?></p>
-                </span>
-            </div>
-        <?php endfor ?>
-
-
-    </div>
-    </div>
-   </div>
+        <div class=post_title>
+            <p><?php echo $tomorrow ?></p>
         </div>
-    <!---********************************Next week***************************************************-->
+        <div class="post_content">
+            <?php for ($x = 0; $x < $countT; $x++) : ?>
+                <?php $sql = "SELECT all*  FROM  app where date = '$tomorrow' and UserId ='$id'";
+
+                $result = $mysqli->query($sql); ?>
+            <?php endfor ?>
+            <?php for ($j = 0; $j < $countT; $j++) : ?>
+                <?php $row = $result->fetch_assoc() ?>
+
+
+
+
+                <span>
+                    <li><?php echo $row['post'] ?></li>
+                </span>
+            <?php endfor ?>
+        
+
+            <div id="add_post_tomorrow" class="add_post">
+
+                <button onclick="addendeavort()" name="submit" value="submit" type="submit" id="post_button">Add Endeavor</button>
+
+            </div>
+        </div>
+                <div>
+                    <div id="add_postt" class="add_post_content">
+                        <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                            <span class="input-group-text" id="basic-addon1">Title</span>
+                            <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
+
+                            <span class="input-group-text">Description</span>
+                            <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                            <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d", strtotime('+1day')) ?>" max="<?php echo date("Y-m-d", strtotime('+1day')); ?>">
+                            <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+         
+
+
+<div>
+                <!---********************************Next week***************************************************-->
+                <div class="icons">
+        
+        <footer><img src="images/secure.png"><strong>Secure note storage</strong>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<img src="images/mobile.png"><strong>Mobile Friendly</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<img src="images/check.png"><strong>Complete your tasks</strong></footer>
     
+</div>
 </body>
 <script>
     function show_today() {
-        document.getElementById('main_app_thought_id').style.display = "none";
+
+        document.getElementById('All_notes').style.display = "none";
         document.getElementById('main_app_today_id').style.display = "inline-block";
         document.getElementById('main_app_tomorrow_id').style.display = "none";
-        document.getElementById('main_app_nextweek_id').style.display = "none";
+        document.getElementById('welcome').style.display = "none";
+        document.getElementById('mission_text').style.display = "none";
 
     }
 
     function show_tomorrow() {
-        document.getElementById('main_app_thought_id').style.display = "none";
+        document.getElementById('All_notes').style.display = "none";
         document.getElementById('main_app_today_id').style.display = "none";
         document.getElementById('main_app_tomorrow_id').style.display = "inline-block";
-        document.getElementById('main_app_nextweek_id').style.display = "none";
-
+        document.getElementById('welcome').style.display = "none";
+        document.getElementById('mission_text').style.display = "none";
 
 
     }
 
-    function show_nextweek() {
-        document.getElementById('main_app_thought_id').style.display = "none";
+    function show_All() {
+
         document.getElementById('main_app_today_id').style.display = "none";
         document.getElementById('main_app_tomorrow_id').style.display = "none";
-        document.getElementById('main_app_nextweek_id').style.display = "inline-block";
+        document.getElementById('All_notes').style.display = "inline-block";
+        document.getElementById('welcome').style.display = "none";
+        document.getElementById('mission_text').style.display = "none";
+    }
+
+    function addendeavor() {
+        document.getElementById('add_post').style.display = "block";
+
+
+
 
 
     }
-    function show_nextweek() {
-        document.getElementById('add_post_today').style.display = "none";
-        document.getElementById('main_app_today_id').style.display = "none";
-        document.getElementById('main_app_tomorrow_id').style.display = "none";
-        document.getElementById('main_app_nextweek_id').style.display = "inline-block";
+
+    function addendeavort() {
+        document.getElementById('add_postt').style.display = "block";
+
+
+
+
+
+    }
+
+    function addendeavorA() {
+        document.getElementById('add_postA').style.display = "block";
+
+
+
 
 
     }
 
-    function show_nextweek() {
-        document.getElementById('main_app_thought_id').style.display = "none";
-        document.getElementById('main_app_today_id').style.display = "none";
-        document.getElementById('main_app_tomorrow_id').style.display = "none";
-        document.getElementById('main_app_nextweek_id').style.display = "inline-block";
 
-
-    }
-    function sign_out(){
-    var xhr = new XMLHttpRequest();
-xhr.open('GET','include/logout.php');
-xhr.onreadystatechange = function(){
-    var done = 4;
-    var ok = 200;
-    if(xhr.readyState === done){
-        if (xhr.status === ok ){
-            console.log(this.responseText);
-        }
-        else{
-        console.log('Error:' + xhr.status);
-        }
-    }
-};
-xhr.send(null);
+    function sign_out() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'include/logout.php');
+        xhr.onreadystatechange = function() {
+            var done = 4;
+            var ok = 200;
+            if (xhr.readyState === done) {
+                if (xhr.status === ok) {
+                    console.log(this.responseText);
+                } else {
+                    console.log('Error:' + xhr.status);
+                }
+            }
+        };
+        xhr.send(null);
     }
 </script>
 
