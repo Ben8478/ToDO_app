@@ -97,11 +97,11 @@ include "include/userClass.php";
 
 
                 
-                    <li ><?php echo $rowA['post'] ?></li>
+                    <li id ="<?php echo $rowA['post_no']?>"><?php echo $rowA['post'] ?></li>
                 
 
             <?php endfor ?>
-            <li id="list_update" ></li>
+           
             <div class="add_post" id="add_post_today">
 
                 <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
@@ -383,7 +383,7 @@ include "include/userClass.php";
         url:'insert.php',
         data :formdata,
         success:function(data){
-            $('#list_update').html(data);
+            $('#post_content').append(data);
         }
 });
     });
