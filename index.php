@@ -17,7 +17,7 @@ $id = $_SESSION['id'];
     <link href="https://fonts.googleapis.com/css?family=Proza+Libre&display=swap" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -27,6 +27,7 @@ include "include/userClass.php";
 ?>
 
 <body class="body_main" id="body_main_id">
+
 
     <div class="side_bar">
 
@@ -47,7 +48,7 @@ include "include/userClass.php";
             </hr>
 
 
-            <button value="submit" id="btn" onclick="sign_out()"> Log out </button>
+            <button class ="buttons" value="submit" id="btn" onclick="sign_out()"> Log out </button>
 
 
         </div>
@@ -60,7 +61,7 @@ include "include/userClass.php";
     <div class="mission_text" id="mission_text">
         <p>Dictionary.com describes an Endeavor as something someone does or something someone has an effect on.My hope is that this application
             will be able to help you to organize those do's and effects you have to be as productive in you'r everyday life as possible.<br> <br>~ Ben (Founder of the Endeavor Inventory)</p>
-        <button onclick="show_All()" name="submit" value="submit" type="submit" id="post_button">Let's Get Started!</button>
+        <button onclick="show_All()" name="submit" value="submit" type="submit" class ="buttons">Let's Get Started!</button>
     </div>
 
 
@@ -84,39 +85,41 @@ include "include/userClass.php";
             <p><strong>All Endeavors</strong></p>
 
         </div>
-        <div class="post_content">
-            <?php for ($a = 0; $a <= $maxid; $a++) : ?>
+        <div class ="list_items post_content" id ="post_content">
+            <?php for ($a = 0; $a < $maxid; $a++) : ?>
                 <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";
 
                 $resultA = $mysqli->query($sqlA); ?>
             <?php endfor ?>
-            <?php for ($b = 0; $b <= $maxid; $b++) : ?>
+            <?php for ($b = 0; $b < $maxid; $b++) : ?>
                 <?php $rowA = $resultA->fetch_assoc() ?>
 
 
 
-                <span>
-                    <li><?php echo $rowA['post'] ?></li>
-                </span>
+                
+                    <li ><?php echo $rowA['post'] ?></li>
+                
 
             <?php endfor ?>
+            <li id="list_update" ></li>
             <div class="add_post" id="add_post_today">
 
-                <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()">Add Endeavor</button>
+                <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
 
-                <?php echo $maxid; ?>
+              
             </div>
             <div>
                 <div id="add_postA" class="add_post_content">
-                    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                    <form id  = 'post_add_A'>
                         <span class="input-group-text" id="basic-addon1">Title</span>
                         <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
 
                         <span class="input-group-text">Description</span>
                         <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
                         <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
-                        <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
+                        <button  type ="submit" onclick ="insert()" id="add_post_content_button" name="post_add" value="post_add" >Add</button>
                     </form>
+                    
                 </div>
             </div>
 
@@ -138,25 +141,7 @@ include "include/userClass.php";
 
 
 
-        <?php if (isset($_POST['post_add']) && $_POST['post_add'] == 'post_add') {
 
-            $title = $_POST['title'];
-            $content = $_POST['content'];
-            $date = $_POST['date'];
-            $sqlcheck = " SELECT post FROM app where UserId ='$id' and post = '$content'";
-            $sqlAdd = "INSERT INTO `app` (`UserId`, `post_title`, `post`, `date`, `post_no`) VALUES ('4', '$title', '$content', '$date', NULL); ";
-            $result = $mysqli->query($sqlcheck);
-
-            if ($result->num_rows > 0) {
-                echo '<script language ="javascript">';
-                echo 'alert("This note already exists")';
-                echo '</script>';
-            } else {
-                $mysqli->query($sqlAdd);
-                echo "nope";
-                $maxid++;
-            }
-        } ?>
 
 
 
@@ -203,7 +188,7 @@ include "include/userClass.php";
 
 
                 <span>
-                    <li><?php echo $row['post'] ?></li>
+                    <li ><?php echo $row['post'] ?></li>
                 </span>
 
             <?php endfor ?>
@@ -211,7 +196,7 @@ include "include/userClass.php";
 
             <div class="add_post" id="add_post_today">
 
-                <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavor()">Add Endeavor</button>
+            <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
 
             </div>
 
@@ -219,7 +204,7 @@ include "include/userClass.php";
 
             <div>
                 <div id="add_post" class="add_post_content">
-                    <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                    <form id = "add_all" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                         <span class="input-group-text" id="basic-addon1">Title</span>
                         <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
 
@@ -283,7 +268,7 @@ include "include/userClass.php";
 
             <div id="add_post_tomorrow" class="add_post">
 
-                <button onclick="addendeavort()" name="submit" value="submit" type="submit" id="post_button">Add Endeavor</button>
+            <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
 
             </div>
         </div>
@@ -311,6 +296,7 @@ include "include/userClass.php";
         <footer><img src="images/secure.png"><strong>Secure note storage</strong>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<img src="images/mobile.png"><strong>Mobile Friendly</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<img src="images/check.png"><strong>Complete your tasks</strong></footer>
     
 </div>
+
 </body>
 <script>
     function show_today() {
@@ -389,12 +375,25 @@ include "include/userClass.php";
 </script>
 
 <script>
-    // $('side_bar_content').mouseenter(function() {
-    //     $(this).css("background-color", "black");
-    // }, function() {
-    //     $(this).css("background-color", "white");
-
-    // });
+    function insert() {
+        $(document).ready(function(){
+    var  formdata = $("#post_add_A").serialize();
+    $.ajax({
+        type:'post',
+        url:'insert.php',
+        data :formdata,
+        success:function(data){
+            $('#list_update').html(data);
+        }
+});
+    });
+    document.getElementById('add_postA').style.display ="none";
+    }
 </script>
+<script>
+    $("#post_add_A").submit(function(event){
+      event.preventDefault();
+    })
+    </script>
 
 </html>

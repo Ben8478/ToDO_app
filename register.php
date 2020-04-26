@@ -14,12 +14,12 @@ include "include/validateUser.php";
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body class ="body_main" id="body_main_id">
-    <div class = "header_main">
+  <div class = "header_main">
     <h1>Endeavor Inventory</h1>
+    <h6>A place to organize all your endeavors</h6>
+   
+
     </div>
-    <div class="subheader_main">
-<h5>A place to organize all your endeavors</h5>
-</div>
 <div class="sign_in" id = "sign_in_id">
 <strong><p class="sign_in_text">Get organized! </p></strong>
 <button class="sign_in_button" onclick="show_pop()">sign up</button>
