@@ -113,7 +113,7 @@ include "include/connect.php";
 
 
 
-            <form id="all_edit" method="post" action="include/delete.php">
+            <form id="all_edit">
                 <?php for ($a = 0; $a < $maxid; $a++) : ?>
                     <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";
 
@@ -125,7 +125,7 @@ include "include/connect.php";
 
 
 
-                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><input type="hidden" name="list" value="<?php echo $rowA['post_no'] ?>"><button name ="list" value="<?php echo $rowA['post_no'] ?> type="submit" class="dlt_button" onclick="deleteA()"><img src="images/delete.png"></button></li>
+                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><button name ="submit" id="<?php echo $rowA['post_no'] ?>"  class="dlt_button" onclick="deleteA(this)"><img src="images/delete.png"></button></li>
 
 
                 <?php endfor ?>
@@ -219,7 +219,7 @@ include "include/connect.php";
 <script>
     function insert() {
         $(document).ready(function() {
-            var formdata = $("#post_add_A").serialize();
+            var formdata = ("#post_add_A").serialize();
             $.ajax({
                 type: 'post',
                 url: 'include/insert.php',
@@ -244,21 +244,22 @@ include "include/connect.php";
 
 <script>
     
-    function deleteA() {
-       
-        $(document).ready(function() {
-            var formdelete = $("all_edit").serialize();
+    function deleteA(myid){
+       number = myid.id;
+      
+
+         $(document).ready(function() {
+             
             $.ajax({
-                type: 'post',
+                 type: 'post',
                 url: 'include/delete.php',
-                data: formdelete,
+                data:({name:number}),
                 success: function(data) {
 
                     $('#post_content').append(data);
-
-                }
-            });
-        });
+                 }
+             });
+         });
 
     }
 </script>
