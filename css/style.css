@@ -227,8 +227,14 @@
     }
     
     .post_title p {
-        width: 87%;
+        width: 79%;
         display: inline-block;
+    }
+    
+    #sort_button {
+        opacity: 0.9;
+        border: none;
+        background-color: transparent;
     }
     
     .post_content {

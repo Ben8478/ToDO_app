@@ -22,7 +22,7 @@ $id = $_SESSION['id'];
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <?php
-include "include/userClass.php";
+include "include/connect.php";
 
 ?>
 
@@ -89,9 +89,10 @@ include "include/userClass.php";
 
             </p>
             <div class="add_post" id="add_post_today">
+           
                     <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
                 </div>
-         
+                <button id="sort_button" onclick="sort()"><img src="images/sort.png"></button>
         </div>
 
         <div class="list_items post_content" id="post_content">
@@ -112,7 +113,7 @@ include "include/userClass.php";
 
 
 
-            <form id="all_edit">
+            <form id="all_edit" method="post" action="include/delete.php">
                 <?php for ($a = 0; $a < $maxid; $a++) : ?>
                     <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";
 
@@ -124,7 +125,7 @@ include "include/userClass.php";
 
 
 
-                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><input type="hidden" name="list" value="<?php echo $rowA['post_no'] ?>"><button type="submit" class="dlt_button" onclick="deleteA()"><img src="images/delete.png"></button></li>
+                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><input type="hidden" name="list" value="<?php echo $rowA['post_no'] ?>"><button name ="list" value="<?php echo $rowA['post_no'] ?> type="submit" class="dlt_button" onclick="deleteA()"><img src="images/delete.png"></button></li>
 
 
                 <?php endfor ?>
@@ -138,7 +139,7 @@ include "include/userClass.php";
 
 </body>
 <script>
-    function show_today() {
+     function show_today() {
 
         document.getElementById('All_notes').style.display = "none";
         document.getElementById('main_app_today_id').style.display = "inline-block";
@@ -242,7 +243,9 @@ include "include/userClass.php";
 </script>
 
 <script>
+    
     function deleteA() {
+       
         $(document).ready(function() {
             var formdelete = $("all_edit").serialize();
             $.ajax({
@@ -264,5 +267,23 @@ include "include/userClass.php";
         event.preventDefault();
     })
 </script>
+<script>
+    
+    function sort() {
+       
+        $(document).ready(function() {
+            $.ajax({
+                type: 'post',
+                url: 'include/sort.php',
+                data:"text/plain",
+                success: function(data) {
+                    console.log('success');
+                    $('#post_content').html(data);
 
+                }
+            });
+        });
+
+    }
+</script>
 </html>
