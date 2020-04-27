@@ -1,13 +1,17 @@
 <?php 
-session_start();
+session_start()
+
 ?>
 
 
 <?php 
-include "connect.php";
-$listno =$_POST['list_no'];
+include 'connect.php';
+
+
 $user = $_SESSION['id'];
-$sqlD = "DELETE FROM app WHERE li_no = '$listono' and UserId = '$user'";
+ $listno=$_POST['list'];
+$sqlD = "DELETE FROM app WHERE post_no = '$listno' and UserId = '$user'";
 $delete =$mysqli->query($sqlD);
+
 
 ?>

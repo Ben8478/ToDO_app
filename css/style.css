@@ -276,9 +276,8 @@
     }
     
     .add_post_content {
-        margin-top: 5%;
+        margin-left: auto;
         width: 100%;
-        display: inline-block;
         background-color: white;
         border-radius: 8px;
         display: none;

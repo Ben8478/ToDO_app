@@ -71,22 +71,49 @@ include "include/userClass.php";
     $highestvalue = "SELECT MAX(list_no) from app where UserId='$id'";
     $high = $mysqli->query($highestvalue);
     $show = $high->fetch_assoc();
-    $maxid = $show['MAX(list_no)']
+    $maxid = $show['MAX(list_no)'];
 
 
 
 
     ?>
+
+
+   
     <div class="main_app_thought" id="All_notes">
         <div class="main_app_header">
             <p><strong>All your todo's</strong></p>
+            <div class="add_post" id="add_post_today">
+
+<button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
+
+
+</div>
         </div>
         <div class=post_title>
             <p><strong>All Endeavors</strong></p>
 
         </div>
-        <form id ="all_edit">
+        
         <div class ="list_items post_content" id ="post_content">
+
+<div style="width:40%;display:inline-block;">
+
+                <div id="add_postA" class="add_post_content">
+                    <form id  = 'post_add_A'>
+                        <span class="input-group-text">Description</span>
+                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
+                        <button  type ="submit" onclick ="insert()" id="add_post_content_button" name="post_add" value="post_add" >Add</button>
+                    </form>
+                    
+                </div>
+            </div>
+
+   
+
+
+        <form id ="all_edit">
             <?php for ($a = 0; $a < $maxid; $a++) : ?>
                 <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";
 
@@ -98,36 +125,16 @@ include "include/userClass.php";
 
 
                 
-                    <li id ="<?php echo $rowA['post_no']?>"><?php echo $rowA['post'] ?></li><button class ="dlt_button"><img src="images/delete.png"></button>
+                    <li id ="<?php echo $rowA['post_no']?>" ><?php echo $rowA['post'] ?><input type="hidden" name = "list" value="<?php echo $rowA['post_no']?>" ><button type="submit" class ="dlt_button" onclick="deleteA()"><img src="images/delete.png"></button></li>
                 
 
             <?php endfor ?>
+            
             </form>
-            <div class="add_post" id="add_post_today">
 
-                <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
-
-              
             </div>
-            <div>
-                <div id="add_postA" class="add_post_content">
-                    <form id  = 'post_add_A'>
-                        <span class="input-group-text" id="basic-addon1">Title</span>
-                        <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
+    
 
-                        <span class="input-group-text">Description</span>
-                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                        <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
-                        <button  type ="submit" onclick ="insert()" id="add_post_content_button" name="post_add" value="post_add" >Add</button>
-                    </form>
-                    
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    </div>
     <!-----------------------------------------------------Today ----------------------------------------->
     <div class="main_app_today" id="main_app_today_id">
         <div class="main_app_header">
@@ -394,10 +401,36 @@ include "include/userClass.php";
     document.getElementById('add_postA').style.display ="none";
     }
 </script>
+
+
 <script>
     $("#post_add_A").submit(function(event){
       event.preventDefault();
     })
     </script>
+
+<script>
+function deleteA(){
+        $(document).ready(function(){
+     var formdelete = $("all_edit").serialize();
+    $.ajax({
+        type:'post',
+        url:'include/delete.php',
+        data :formdelete,
+        success:function(data){
+           
+          $('#post_content').append(data);
+            
+        }
+});
+    });
+    
+    }
+</script>
+   <script>
+    $("#all_edit").submit(function(event){
+      event.preventDefault();
+    })
+    </script> 
 
 </html>

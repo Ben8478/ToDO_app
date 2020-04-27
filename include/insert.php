@@ -1,8 +1,8 @@
 
 <?php session_start()?>
 <?php
-include 'include/connect.php';
-$title = $_POST['title'];
+include 'connect.php';
+
 $content = $_POST['content'];
 $id = $_SESSION['id'];
 $date = $_POST['date'];
@@ -12,7 +12,7 @@ $show =$maxid->fetch_assoc();
 $mId = $show['MAX(list_no)'] +1;
 
 $sqlcheck = " SELECT post FROM app where UserId ='$id' and post = '$content'";
-$sqlAdd = "INSERT INTO app (`UserId`, `post_title`, `post`, `date`, `post_no`, `list_no`) VALUES ('$id', '$title', '$content', '$date', NULL,'$mId'); ";
+$sqlAdd = "INSERT INTO app (`UserId`, `post`, `date`, `post_no`, `list_no`) VALUES ('$id', '$content', '$date', NULL,'$mId'); ";
 $result = $mysqli->query($sqlcheck);
 
  if ($result->num_rows > 0) {
