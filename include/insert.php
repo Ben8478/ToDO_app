@@ -25,7 +25,7 @@ $result = $mysqli->query($sqlcheck);
      $appendto = $mysqli->query($append);
      $show_append = $appendto->fetch_assoc();
      $final_append = $show_append['post'];
-     echo $final_append;
+     echo "<li > $final_append </li>";
  }
 
 

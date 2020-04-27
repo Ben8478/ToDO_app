@@ -97,7 +97,7 @@ include "include/userClass.php";
 
 
                 
-                    <li id ="<?php echo $rowA['post_no']?>"><?php echo $rowA['post'] ?></li>
+                    <li id ="<?php echo $rowA['post_no']?>"><?php echo $rowA['post'] ?></li><button><img src="images/delete.png"></button>
                 
 
             <?php endfor ?>
@@ -194,24 +194,24 @@ include "include/userClass.php";
             <?php endfor ?>
 
 
-            <div class="add_post" id="add_post_today">
+            <div class="add_post" >
 
-            <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
+            <button name="submit" value="submit" type="submit" id="post_button" onclick="add_today()"><img src="images/add.png"></button>
 
             </div>
 
 
 
-            <div>
-                <div id="add_post" class="add_post_content">
-                    <form id = "add_all" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+            <div >
+                <div  id="add_post_today" class="add_post_content">
+                    <form id="add_today">
                         <span class="input-group-text" id="basic-addon1">Title</span>
                         <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
 
                         <span class="input-group-text">Description</span>
                         <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
                         <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
-                        <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
+                        <button onclick ="" id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
                     </form>
                 </div>
             </div>
@@ -265,16 +265,16 @@ include "include/userClass.php";
                 </span>
             <?php endfor ?>
         
-
+            
             <div id="add_post_tomorrow" class="add_post">
 
             <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
 
             </div>
-        </div>
+            </div>
                 <div>
-                    <div id="add_postt" class="add_post_content">
-                        <form action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                    <div id="add_post_tomorrow" class="add_post_content">
+                        <form id="add_tomorrow">
                             <span class="input-group-text" id="basic-addon1">Title</span>
                             <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
 
@@ -286,8 +286,7 @@ include "include/userClass.php";
                     </div>
                 </div>
             </div>
-         
-
+            </div>
 
 <div>
                 <!---********************************Next week***************************************************-->
@@ -354,7 +353,9 @@ include "include/userClass.php";
 
 
     }
-
+    function add_today(){
+        document.getElementById("add_post_today").style.display ="block";
+    }
 
     function sign_out() {
         var xhr = new XMLHttpRequest();
@@ -380,10 +381,12 @@ include "include/userClass.php";
     var  formdata = $("#post_add_A").serialize();
     $.ajax({
         type:'post',
-        url:'insert.php',
+        url:'include/insert.php',
         data :formdata,
         success:function(data){
-            $('#post_content').append(data);
+           
+            $('#post_content').prepend(data);
+            
         }
 });
     });
