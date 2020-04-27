@@ -41,7 +41,7 @@ include "include/connect.php";
            <p> Home</p>
             <hr class="HL">
             </hr>
-<button class="buttons" value="submit" id="btn" onclick="sign_out()"> Log out </button>
+<button value="submit" id="btn" onclick="sign_out()"> Log out </button>
 
 
         </div>
@@ -127,8 +127,12 @@ include "include/connect.php";
           
         </div>
 
+                </div>
+        <div class="icons">
 
-        
+<footer><p><img src="images/secure.png"><strong>Secure note storage</strong></p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/mobile.png"><strong>Mobile Friendly</strong></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/check.png"><strong>Complete your tasks</strong></p></footer>
+
+</div>     
 
 </body>
 <script>
