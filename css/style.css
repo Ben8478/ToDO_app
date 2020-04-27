@@ -36,10 +36,6 @@
         color: #282f3b;
     }
     
-    #side_bar_timeline {
-        margin-top: 20%;
-    }
-    
     .HL {
         border: 0.5px solid #282f3b;
     }
@@ -239,14 +235,14 @@
     
     .post_content {
         background-attachment: fixed;
-        width: 73%;
+        width: 70%;
         height: auto;
         background-color: white;
         opacity: 0.8;
         border-radius: 2px;
         -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
         box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-        margin-left: 27%;
+        margin-left: 30%;
         margin-bottom: 5%;
     }
     
@@ -328,22 +324,66 @@
             width: 70%;
         }
         .side_bar {
+            width: 100%;
+            height: 50px;
+            display: inline-block;
+            margin-bottom: 10%;
+        }
+        .side_bar p {
+            display: inline-block;
+            font-size: 16px;
+            width: 10px;
+            margin-left: 15%;
+        }
+        #btn {
+            margin-left: 30%;
+            width: 30%;
+            display: inline-block;
+            font-size: 16px;
+            height: 50px;
+        }
+        h1 {
+            width: 100%;
+        }
+        #mission_text p {
+            width: 100%;
+        }
+        #welcome {
+            margin-top: 30%;
+        }
+        #logo {
             display: none;
         }
-        .main_app_today {
-            display: inline-block;
-        }
-        .main_app_today {
-            width: 70%;
-            height: 100px;
-        }
-        .main_app_header {
-            width: 70%;
-        }
-        .main_app_thought_header {
-            width: 70;
+        .HL {
+            display: none;
         }
         .main_app_thought {
-            display: none;
+            width: 100%;
+        }
+        .main_app_header {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30%;
+        }
+        .buttons {
+            margin-bottom: 10%;
+        }
+        .post_content {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .post_content li {
+            width: 50%;
+        }
+        .post_title {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .post_title p {
+            width: 60%;
+            margin-left: 8%;
         }
     }

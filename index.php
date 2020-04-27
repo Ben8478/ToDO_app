@@ -31,34 +31,27 @@ include "include/connect.php";
 
     <div class="side_bar">
 
-        <img class="logo" src="images/logo.png">
-        <div id="side_bar_timeline">
+        <img id ="logo"class="logo" src="images/logo.png">
+        
             <hr class="HL">
             </hr>
             <p id="start" class="side_bar_content"><a href="#" onclick="show_All()">All</a></p>
-
-
             <hr class="HL">
             </hr>
-
-            <p> Home</p>
+           <p> Home</p>
             <hr class="HL">
             </hr>
-
-
-
-            <button class="buttons" value="submit" id="btn" onclick="sign_out()"> Log out </button>
+<button class="buttons" value="submit" id="btn" onclick="sign_out()"> Log out </button>
 
 
         </div>
 
-    </div>
     <div class="welcome" id="welcome">
         <h1>Welcome to Endeavor inventory.</h1>
     </div>
 
     <div class="mission_text" id="mission_text">
-        <p>Dictionary.com describes an Endeavor as something someone does or something someone has an effect on.My hope is that this application
+        <p id="mission_paragraph">Dictionary.com describes an Endeavor as something someone does or something someone has an effect on.My hope is that this application
             will be able to help you to organize those do's and effects you have to be as productive in you'r everyday life as possible.<br> <br>~ Ben (Founder of the Endeavor Inventory)</p>
         <button onclick="show_All()" name="submit" value="submit" type="submit" class="buttons">Let's Get Started!</button>
     </div>
@@ -94,7 +87,7 @@ include "include/connect.php";
                 </div>
                 <button id="sort_button" onclick="sort()"><img src="images/sort.png"></button>
         </div>
-<ul>
+
         <div class="list_items post_content" id="post_content">
 
             <div style="width:40%;display:inline-block;">
@@ -131,7 +124,7 @@ include "include/connect.php";
                 <?php endfor ?>
 
             </form>
-            </ul>
+          
         </div>
 
 
