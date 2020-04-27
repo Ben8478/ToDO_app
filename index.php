@@ -41,6 +41,10 @@ include "include/userClass.php";
             <hr class="HL">
             </hr>
 
+            <p> Home</p>
+            <hr class="HL">
+            </hr>
+
 
 
             <button class="buttons" value="submit" id="btn" onclick="sign_out()"> Log out </button>
@@ -98,7 +102,7 @@ include "include/userClass.php";
                     <form id='post_add_A'>
                         <span class="input-group-text">Description</span>
                         <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                        <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
+                        <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" ">
                         <button type="submit" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
                     </form>
 
@@ -120,7 +124,7 @@ include "include/userClass.php";
 
 
 
-                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?><input type="hidden" name="list" value="<?php echo $rowA['post_no'] ?>"><button type="submit" class="dlt_button" onclick="deleteA()"><img src="images/delete.png"></button></li>
+                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><input type="hidden" name="list" value="<?php echo $rowA['post_no'] ?>"><button type="submit" class="dlt_button" onclick="deleteA()"><img src="images/delete.png"></button></li>
 
 
                 <?php endfor ?>
