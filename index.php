@@ -85,6 +85,7 @@ include "include/userClass.php";
             <p><strong>All Endeavors</strong></p>
 
         </div>
+        <form id ="all_edit">
         <div class ="list_items post_content" id ="post_content">
             <?php for ($a = 0; $a < $maxid; $a++) : ?>
                 <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";
@@ -97,11 +98,11 @@ include "include/userClass.php";
 
 
                 
-                    <li id ="<?php echo $rowA['post_no']?>"><?php echo $rowA['post'] ?></li><button><img src="images/delete.png"></button>
+                    <li id ="<?php echo $rowA['post_no']?>"><?php echo $rowA['post'] ?></li><button class ="dlt_button"><img src="images/delete.png"></button>
                 
 
             <?php endfor ?>
-           
+            </form>
             <div class="add_post" id="add_post_today">
 
                 <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
@@ -188,7 +189,7 @@ include "include/userClass.php";
 
 
                 <span>
-                    <li ><?php echo $row['post'] ?></li>
+                    <li ><?php echo $row['post'] ?></li><button class ="dlt_button"><img src="images/delete.png"></button>
                 </span>
 
             <?php endfor ?>
