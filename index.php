@@ -40,12 +40,7 @@ include "include/userClass.php";
 
             <hr class="HL">
             </hr>
-            <p class="side_bar_content"><a href="#" onclick="show_today()"> Today</a></p>
-            <hr class="HL">
-            </hr>
-            <p class="side_bar_content"><a href="#" onclick="show_tomorrow() ">Tomorrow</a></p>
-            <hr class="HL">
-            </hr>
+
 
 
             <button class="buttons" value="submit" id="btn" onclick="sign_out()"> Log out </button>
@@ -135,174 +130,7 @@ include "include/userClass.php";
         </div>
 
 
-        <!-----------------------------------------------------Today ----------------------------------------->
-        <div class="main_app_today" id="main_app_today_id">
-            <div class="main_app_header">
-                <p><strong>Today</strong></p>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <?php
-            $count = 0;
-
-            $today = date('Y-m-d');
-
-            $dates = array();
-            $sqldate = "SELECT date  FROM  app  where UserId = '$id'";
-
-            $result = $mysqli->query($sqldate);
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-
-                    array_push($dates, $row['date']);
-                }
-            }
-
-
-            foreach ($dates as $thedates) {
-                if ($thedates == "$today") {
-                    $count++;
-                }
-            }
-
-            ?>
-            <div class=post_title>
-                <p><strong><?php echo $today; ?></strong></p>
-
-            </div>
-
-            <div class="post_content">
-
-                <?php for ($x = 0; $x < $count; $x++) : ?>
-                    <?php $sql = "SELECT all*  FROM  app where date = '$today' and UserId ='$id'";
-
-                    $result = $mysqli->query($sql); ?>
-                <?php endfor ?>
-                <?php for ($j = 0; $j < $count; $j++) : ?>
-                    <?php $row = $result->fetch_assoc() ?>
-
-
-
-                    <span>
-                        <li><?php echo $row['post'] ?></li><button class="dlt_button"><img src="images/delete.png"></button>
-                    </span>
-
-                <?php endfor ?>
-
-
-                <div class="add_post">
-
-                    <button name="submit" value="submit" type="submit" id="post_button" onclick="add_today()"><img src="images/add.png"></button>
-
-                </div>
-
-
-
-                <div>
-                    <div id="add_post_today" class="add_post_content">
-                        <form id="add_today">
-                            <span class="input-group-text" id="basic-addon1">Title</span>
-                            <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
-
-                            <span class="input-group-text">Description</span>
-                            <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                            <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d") ?>" max="<?php echo date("Y-m-d") ?>">
-                            <button onclick="" id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
-                        </form>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <!-----------------------------------------------------Tomorrow ----------------------------------------->
-
-        </div>
-        <div class="main_app_today" id="main_app_tomorrow_id">
-            <div class="main_app_header">
-                <p><strong> Tomorrow</strong></p>
-            </div>
-
-
-
-
-
-
-
-            <?php
-            $tomorrow = date('Y-m-d', strtotime('+1day'));
-            $countT = 0;
-            foreach ($dates as $thedates) {
-                if ($thedates == "$tomorrow") {
-                    $countT++;
-                }
-            }
-
-
-            ?>
-            <div class=post_title>
-                <p><?php echo $tomorrow ?></p>
-            </div>
-            <div class="post_content">
-                <?php for ($x = 0; $x < $countT; $x++) : ?>
-                    <?php $sql = "SELECT all*  FROM  app where date = '$tomorrow' and UserId ='$id'";
-
-                    $result = $mysqli->query($sql); ?>
-                <?php endfor ?>
-                <?php for ($j = 0; $j < $countT; $j++) : ?>
-                    <?php $row = $result->fetch_assoc() ?>
-
-
-
-
-                    <span>
-                        <li><?php echo $row['post'] ?></li>
-                    </span>
-                <?php endfor ?>
-
-
-                <div id="add_post_tomorrow" class="add_post">
-
-                    <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
-
-                </div>
-            </div>
-            <div>
-                <div id="add_post_tomorrow" class="add_post_content">
-                    <form id="add_tomorrow">
-                        <span class="input-group-text" id="basic-addon1">Title</span>
-                        <input name="title" type="text" class="form-control" placeholder="Endeavor title" aria-label="Username" aria-describedby="basic-addon1">
-
-                        <span class="input-group-text">Description</span>
-                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                        <input name="date" class="form-control" type="date" value="<?php echo date("Y-m-d", strtotime('+1day')) ?>" max="<?php echo date("Y-m-d", strtotime('+1day')); ?>">
-                        <button id="add_post_content_button" name="post_add" value="post_add" type="submit">Add</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <!---********************************Next week***************************************************-->
-        <div class="icons">
-
-            <footer><img src="images/secure.png"><strong>Secure note storage</strong>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<img src="images/mobile.png"><strong>Mobile Friendly</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<img src="images/check.png"><strong>Complete your tasks</strong></footer>
-
-        </div>
+        
 
 </body>
 <script>
@@ -328,8 +156,7 @@ include "include/userClass.php";
 
     function show_All() {
 
-        document.getElementById('main_app_today_id').style.display = "none";
-        document.getElementById('main_app_tomorrow_id').style.display = "none";
+   
         document.getElementById('All_notes').style.display = "inline-block";
         document.getElementById('welcome').style.display = "none";
         document.getElementById('mission_text').style.display = "none";
