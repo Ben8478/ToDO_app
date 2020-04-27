@@ -94,7 +94,7 @@ include "include/connect.php";
                 </div>
                 <button id="sort_button" onclick="sort()"><img src="images/sort.png"></button>
         </div>
-
+<ul>
         <div class="list_items post_content" id="post_content">
 
             <div style="width:40%;display:inline-block;">
@@ -131,7 +131,7 @@ include "include/connect.php";
                 <?php endfor ?>
 
             </form>
-
+            </ul>
         </div>
 
 
