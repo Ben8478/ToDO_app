@@ -25,8 +25,15 @@ $result = $mysqli->query($sqlcheck);
      $appendto = $mysqli->query($append);
      $show_append = $appendto->fetch_assoc();
      $final_append = $show_append['post'];
-     echo "<li> $final_append </li>";
- }
+     $sqlM ="SELECT MAX(post_no) from app where UserId='$id'";
+     $display=$mysqli->query($sqlM);
+     $showM =$display->fetch_assoc();
+     $displayM = $showM['MAX(post_no)'];
+    }
+   
+ 
+     echo "<li>".$final_append."<br>Due on ".$date."<button id =\" $displayM\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button></li>";
+ 
 
 
 ?>

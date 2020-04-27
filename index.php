@@ -219,7 +219,7 @@ include "include/connect.php";
 <script>
     function insert() {
         $(document).ready(function() {
-            var formdata = ("#post_add_A").serialize();
+            var formdata = $("#post_add_A").serialize();
             $.ajax({
                 type: 'post',
                 url: 'include/insert.php',
@@ -232,6 +232,7 @@ include "include/connect.php";
             });
         });
         document.getElementById('add_postA').style.display = "none";
+        
     }
 </script>
 
@@ -260,7 +261,8 @@ include "include/connect.php";
                  }
              });
          });
-
+          document.getElementById(number).style.textDecoration ="line-through";
+       
     }
 </script>
 <script>
