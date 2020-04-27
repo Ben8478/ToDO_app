@@ -345,8 +345,13 @@
         h1 {
             width: 100%;
         }
-        #mission_text p {
+        #mission_text {
             width: 100%;
+        }
+        #mission_paragraph {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
         }
         #welcome {
             margin-top: 30%;
