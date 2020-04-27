@@ -57,6 +57,10 @@ include "include/validateUser.php";
 </form>
 
 </div>
+<?php if (isset($_POST['submitR'])){
+header('location:login.php');
+}
+?>
     </body>
 
     <script>

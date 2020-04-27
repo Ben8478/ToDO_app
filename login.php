@@ -17,6 +17,8 @@
     <h1>Endeavor Inventory</h1>
     <h6>A place to organize all your endeavors</h6>
    
+    <p> Not yet organized ? </p>
+<a href="register.php">Sign up</a>
 
     </div>
   
@@ -24,6 +26,7 @@
 <strong><p class="sign_in_text">Already organized? </p></strong>
 <button id = 'sign_in_button' class="sign_in_button" onclick="show_pop()">Sign in</button>
 </div>
+
 <div class="sign_in_pop-up" id = "sign_in_pop-up_id">
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
   <div class="form-group">
@@ -37,10 +40,11 @@
   </div>
 
   <button value ="submitL" name="submitL" type="submit" class="sign_in_pop-up_button">Submit</button>
+  
+</div>
 
 </form>
 
-</div>
     </body>
 
     <script>
