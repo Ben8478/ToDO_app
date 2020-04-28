@@ -119,8 +119,7 @@ include "include/connect.php";
         </div>
 
                 </div>
-                <div style="width:20%;display:inline-block;margin-top:10%;position: absolute;
-    z-index: 5;">
+                <div id="add_box">
 
                 <div id="add_postA" class="add_post_content">
                     <form id='post_add_A'>
@@ -132,15 +131,14 @@ include "include/connect.php";
 
                 </div>
             </div>
-            <div style="width:40%;display:inline-block;margin-top:10%;position: absolute;
-    z-index: 5;">
+            <div id ="edit_box">
 
                 <div id="edit_post" class="edit_post">
                     <form id='edit_post_A'>
                         <span class="input-group-text">Edit Task</span>
                         <textarea id = "edit_content"rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
                         <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
-                        <button type="submit" onclick="update()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
+                        <button type="submit" onclick="update()" id="add_post_content_button" name="post_add" value="post_add">Edit</button>
                     </form>
 
                 </div>
