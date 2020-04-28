@@ -253,6 +253,16 @@
     background-color: transparent;
 }
 
+.edit_button {
+    opacity: 0.9;
+    border: none;
+    background-color: transparent;
+}
+
+#edit_post {
+    display: none;
+}
+
 .post_content {
     padding-bottom: 8%;
     background-attachment: fixed;

@@ -102,6 +102,18 @@ include "include/connect.php";
 
                 </div>
             </div>
+            <div style="width:40%;display:inline-block;">
+
+                <div id="edit_post" class="edit_post">
+                    <form id='edit_post_A'>
+                        <span class="input-group-text">Description</span>
+                        <textarea id = "edit_content"rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
+                        <button type="submit" onclick="update()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
+                    </form>
+
+                </div>
+            </div>
 
 
 
@@ -118,7 +130,7 @@ include "include/connect.php";
 
 
 
-                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><button name ="submit" id="<?php echo $rowA['post_no'] ?>"  class="dlt_button" onclick="deleteA(this)"><img src="images/delete.png"></button></li>
+                    <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><br><button id = "<?php echo $rowA['post_no'] ?>" onclick="edit(this)" class = "edit_button"><img src="images/edit.png"></button><button name ="submit" id="<?php echo $rowA['post_no'] ?>"  class="dlt_button" onclick="deleteA(this)"><img src="images/delete.png"></button></li>
 
 
                 <?php endfor ?>
@@ -285,5 +297,34 @@ include "include/connect.php";
         });
 
     }
+    function edit(myidE){
+      
+       numberE = myidE.id;
+      
+
+         $(document).ready(function() {
+             
+            $.ajax({
+                 type: 'post',
+                url: 'include/edit.php',
+                data:({name:numberE}),
+                success: function(data) {
+
+                    $('#edit_content').html(data);
+                 }
+             });
+         });
+         document.getElementById('edit_post').style.display ="inline-block" ;
+       
+    }
+
+function update(){
+    console.log(numberE);
+}
+</script>
+<script>
+    $("#edit_post").submit(function(event) {
+        event.preventDefault();
+    })
 </script>
 </html>
