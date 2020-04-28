@@ -25,7 +25,7 @@ $id = $_SESSION['id'];
 include "include/connect.php";
 
 ?>
-
+<!-----------------------------------------Start of navbar section ----------------------------------------------->
 <body class="body_main" id="body_main_id">
 
 
@@ -35,17 +35,17 @@ include "include/connect.php";
         
             <hr class="HL">
             </hr>
-            <p id="start" class="side_bar_content"><a href="#" onclick="show_All()">All</a></p>
+            <p id="start" class="side_bar_content"><a href="#" onclick="show_All()">All</a></p><!--contains an onclick linked to a javascript function to show all the notes-->
             <hr class="HL">
             </hr>
-            <p id="start" class="side_bar_content"><a href="#" onclick="home()">Home</a></p>
+            <p id="start" class="side_bar_content"><a href="#" onclick="home()">Home</a></p><!-- onclick that displays the content on the homepage -->
             <hr class="HL">
             </hr>
-<button value="submit" id="btn" onclick="sign_out()"> Log out </button>
-
+<button value="submit" id="btn" onclick="sign_out()"> Log out </button><!--onclick this button wil sign you out with an ajax function -->
+<!-----------------------------------------End of navbar section----------------------------------------------->
 
         </div>
-
+<!-----------------------------------------Start of welcoming text----------------------------------------------->
     <div class="welcome" id="welcome">
         <h1>Welcome to Endeavor inventory.</h1>
     </div>
@@ -57,20 +57,15 @@ include "include/connect.php";
     </div>
 
 
-
-
+<!-----------------------------------------End of welcoming text ----------------------------------------------->
     <?php
     $highestvalue = "SELECT MAX(list_no) from app where UserId='$id'";
     $high = $mysqli->query($highestvalue);
     $show = $high->fetch_assoc();
     $maxid = $show['MAX(list_no)'];
-
-
-
-
     ?>
 
-
+<!----------------------------------------- Start of content that will be displayd----------------------------------------------->
 
     <div class="main_app_thought" id="All_notes">
         <div class="main_app_header">
@@ -98,26 +93,26 @@ include "include/connect.php";
 
             <form id="all_edit">
                 
-                    <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";?>
+                    <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'";?><!--SQL query to select all content from specific user-->
                     <?php $resultA = $mysqli->query($sqlA)?>
-                    <?php if($resultA->num_rows>0) : ?>
+                    <?php if($resultA->num_rows>0) : ?><!--if statement is true it will execite the following -->
                     
                
-                <?php while($rowA = $resultA->fetch_assoc()) : ?>
+                <?php while($rowA = $resultA->fetch_assoc()) : ?><!--While rows exist the query will continue to execute -->
                     
 
 
 
-
+<!-----------------------------------------This section echoes out each element of the database as li items and gives relevant id to button for functionality----------------------------------------------->
                     <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><br><button id = "<?php echo $rowA['post_no'] ?>" onclick="edit(this)" class = "edit_button"><img src="images/edit.png"></button><button name ="submit" id="<?php echo $rowA['post_no'] ?>"  class="dlt_button" onclick="deleteA(this)"><img src="images/delete.png"></button></li>
 
 
-                <?php endwhile ?>
-                <?php endif ?>
+                <?php endwhile ?><!--Ends the while loop-->
+                <?php endif ?><!-- Ends if statement-->
             </form>
           
         </div>
-
+<!-----------------------------------------This section contains forms to received user input from either edit or add queries----------------------------------------------->
                 </div>
                 <div id="add_box">
 
@@ -143,19 +138,24 @@ include "include/connect.php";
 
                 </div>
             </div>
-        <div class="icons">
+            <!-----------------------------------------End of form section----------------------------------------------->
+
+
+
+<!-----------------------------------------Icon footer section----------------------------------------------->
+<div class="icons">
 
 <footer><p><img src="images/secure.png"><strong>Secure note storage</strong></p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/mobile.png"><strong>Mobile Friendly</strong></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/check.png"><strong>Complete your tasks</strong></p></footer>
 
 </div>     
-
+<!-----------------------------------------End of footer section----------------------------------------------->
 </body>
 <script>
 
 
     function show_All() {
 
-   
+   //A function that hides the welcome text and displays the content
         document.getElementById('All_notes').style.display = "inline-block";
         document.getElementById('welcome').style.display = "none";
         document.getElementById('mission_text').style.display = "none";
@@ -164,6 +164,7 @@ include "include/connect.php";
         document.getElementById('All_notes').style.display = "none";
         document.getElementById('welcome').style.display = "block";
         document.getElementById('mission_text').style.display = "block";
+    //A function that hides the content and displays the welcome text
     }
     function addendeavor() {
         document.getElementById('add_post').style.display = "block";
@@ -212,6 +213,7 @@ include "include/connect.php";
         };
         xhr.send(null);
     }
+    //this function signs the user out of his session
 </script>
 
 <script>
@@ -232,10 +234,12 @@ include "include/connect.php";
         document.getElementById('add_postA').style.display = "none";
         
     }
+    //this function sends the form data to insert.php with ajax
 </script>
 
 
 <script>
+//this function prevents the form to submit
     $("#post_add_A").submit(function(event) {
         event.preventDefault();
     })
@@ -245,7 +249,7 @@ include "include/connect.php";
     
     function deleteA(myid){
        number = myid.id;
-      
+      //this function passes an id of the button and sends this id to delete.php and puts a line through the deleted task
 
          $(document).ready(function() {
              
@@ -264,6 +268,7 @@ include "include/connect.php";
     }
 </script>
 <script>
+//this function prevents the form to submit
     $("#all_edit").submit(function(event) {
         event.preventDefault();
     })
@@ -284,10 +289,10 @@ include "include/connect.php";
                 }
             });
         });
-        
+        //this function sends a request with ajax to sort.php and returns the sorted data 
     }
     function edit(myidE){
-      
+      //this function passes the id of the button and sends this data to edit.php to enable the page to run the code on this specific id
        numberE = myidE.id;
       
 
@@ -323,10 +328,11 @@ function update(){
           });
           
           document.getElementById('edit_post').style.display ="none" ;
-          
+      //this function sends form data captured by #edit_post_A and replaces the current value with the updated value    
 }
 </script>
 <script>
+//this function prevents the form to submit
     $("#edit_post").submit(function(event) {
         event.preventDefault();
     })
