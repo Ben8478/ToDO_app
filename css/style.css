@@ -264,6 +264,7 @@
 }
 
 .post_content {
+    display: inline-block;
     padding-bottom: 8%;
     background-attachment: fixed;
     width: 70%;

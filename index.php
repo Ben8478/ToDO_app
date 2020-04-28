@@ -86,34 +86,12 @@ include "include/connect.php";
                     <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
                 </div>
                 <button id="sort_button" onclick="sort()"><img src="images/sort.png"></button>
+             
         </div>
 
         <div class="list_items post_content" id="post_content">
 
-            <div style="width:40%;display:inline-block;">
-
-                <div id="add_postA" class="add_post_content">
-                    <form id='post_add_A'>
-                        <span class="input-group-text">Description</span>
-                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                        <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" ">
-                        <button type="submit" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
-                    </form>
-
-                </div>
-            </div>
-            <div style="width:40%;display:inline-block;">
-
-                <div id="edit_post" class="edit_post">
-                    <form id='edit_post_A'>
-                        <span class="input-group-text">Description</span>
-                        <textarea id = "edit_content"rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                        <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
-                        <button type="submit" onclick="update()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
-                    </form>
-
-                </div>
-            </div>
+           
 
 
 
@@ -140,6 +118,32 @@ include "include/connect.php";
         </div>
 
                 </div>
+                <div style="width:20%;display:inline-block;margin-top:10%;position: absolute;
+    z-index: 5;">
+
+                <div id="add_postA" class="add_post_content">
+                    <form id='post_add_A'>
+                        <span class="input-group-text">Description</span>
+                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
+                        <button type="submit" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
+                    </form>
+
+                </div>
+            </div>
+            <div style="width:40%;display:inline-block;margin-top:10%;position: absolute;
+    z-index: 5;">
+
+                <div id="edit_post" class="edit_post">
+                    <form id='edit_post_A'>
+                        <span class="input-group-text">Description</span>
+                        <textarea id = "edit_content"rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
+                        <button type="submit" onclick="update()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
+                    </form>
+
+                </div>
+            </div>
         <div class="icons">
 
 <footer><p><img src="images/secure.png"><strong>Secure note storage</strong></p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/mobile.png"><strong>Mobile Friendly</strong></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/check.png"><strong>Complete your tasks</strong></p></footer>
@@ -328,7 +332,7 @@ function update(){
                  data:form,
                  success: function(data) {
  
-                     document.getElementById(numberE).innerHTML= data;
+                     document.getElementById(numberE).innerHTML=data;
                   }
               });
           });
