@@ -102,8 +102,8 @@ include "include/connect.php";
 
                     $resultA = $mysqli->query($sqlA); ?>
                 <?php endfor ?>
-                <?php for ($b = 0; $b < $maxid; $b++) : ?>
-                    <?php $rowA = $resultA->fetch_assoc() ?>
+                
+                    <?php while( $rowA = $resultA->fetch_assoc()):?>
 
 
 
@@ -111,12 +111,12 @@ include "include/connect.php";
                     <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date'];?><br><button id = "<?php echo $rowA['post_no'] ?>" onclick="edit(this)" class = "edit_button"><img src="images/edit.png"></button><button name ="submit" id="<?php echo $rowA['post_no'] ?>"  class="dlt_button" onclick="deleteA(this)"><img src="images/delete.png"></button></li>
 
 
-                <?php endfor ?>
-
+           
+<?php endwhile?>
             </form>
           
         </div>
-
+                   
                 </div>
                 <div style="width:20%;display:inline-block;margin-top:10%;position: absolute;
     z-index: 5;">
@@ -124,7 +124,7 @@ include "include/connect.php";
                 <div id="add_postA" class="add_post_content">
                     <form id='post_add_A'>
                         <span class="input-group-text">Description</span>
-                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <textarea id = "edit_content_A" rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
                         <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
                         <button type="submit" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
                     </form>
@@ -152,25 +152,7 @@ include "include/connect.php";
 
 </body>
 <script>
-     function show_today() {
-
-        document.getElementById('All_notes').style.display = "none";
-        document.getElementById('main_app_today_id').style.display = "inline-block";
-        document.getElementById('main_app_tomorrow_id').style.display = "none";
-        document.getElementById('welcome').style.display = "none";
-        document.getElementById('mission_text').style.display = "none";
-
-    }
-
-    function show_tomorrow() {
-        document.getElementById('All_notes').style.display = "none";
-        document.getElementById('main_app_today_id').style.display = "none";
-        document.getElementById('main_app_tomorrow_id').style.display = "inline-block";
-        document.getElementById('welcome').style.display = "none";
-        document.getElementById('mission_text').style.display = "none";
-
-
-    }
+     
 
     function show_All() {
 
@@ -245,6 +227,8 @@ include "include/connect.php";
             });
         });
         document.getElementById('add_postA').style.display = "none";
+        document.getElementById('edit_content_A').value = "";
+
         
     }
 </script>

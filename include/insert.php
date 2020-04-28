@@ -29,10 +29,11 @@ $result = $mysqli->query($sqlcheck);
      $display=$mysqli->query($sqlM);
      $showM =$display->fetch_assoc();
      $displayM = $showM['MAX(post_no)'];
+     echo "<li id = \"$displayM\">".$final_append."<br>Due on ".$date."<button id =\"$displayM\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button></li>";
     }
    
  
-     echo "<li id = \"$displayM\">".$final_append."<br>Due on ".$date."<button id =\"$displayM\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button></li>";
+     
  
 
 
