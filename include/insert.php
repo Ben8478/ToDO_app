@@ -12,7 +12,7 @@ $show =$maxid->fetch_assoc();
 $mId = $show['MAX(list_no)'] +1;
 
 $sqlcheck = " SELECT post FROM app where UserId ='$id' and post = '$content'";
-$sqlAdd = "INSERT INTO app (`UserId`, `post`, `date`, `post_no`, `list_no`,`delete_item`) VALUES ('$id', '$content', '$date', NULL,'$mId',null); ";
+$sqlAdd = "INSERT INTO app (`UserId`, `post`, `date`, `post_no`, `list_no`,`delete_item`) VALUES ('$id', '$content', '$date', NULL,'$mId','0'); ";
 $result = $mysqli->query($sqlcheck);
 
  if ($result->num_rows > 0) {
@@ -29,7 +29,7 @@ $result = $mysqli->query($sqlcheck);
      $display=$mysqli->query($sqlM);
      $showM =$display->fetch_assoc();
      $displayM = $showM['MAX(post_no)'];
-     echo "<li id = \"$displayM\">".$final_append."<br>Due on ".$date."<button id =\"$displayM\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button></li>";
+     echo "<li id = \"$displayM\">".$final_append."<br>Due on ".$date."<br><button id = \"$displayM\" onclick=\"edit(this)\" class = \"edit_button\"><img src=\"images/edit.png\"></button><button id =\"$displayM\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button></li>";
     }
    
  
