@@ -5,9 +5,9 @@ $no =$_SESSION['post_no'];
 $new = $_POST['content'];
 $date = $_POST['date'];
 
+$sqlU ="UPDATE app SET post ='$new' WHERE post_no = '$no' ";
 
-
-
+$executeU =$mysqli->query($sqlU);
 
 
 
