@@ -16,8 +16,8 @@ echo "</script>" ;
   }
   else {
       $password_E= password_hash($password, PASSWORD_DEFAULT);
-      $sqlR = "INSERT INTO users (id, firstname, lastname, email, password)
-      values('null','$firstname','$surname','$email',' $password_E')";
+      $sqlR = "INSERT INTO users (`id`, `firstname`, `lastname`, `email`, `password`)
+      values(null,'$firstname','$surname','$email',' $password_E')";
       $mysqli->query($sqlR);
   }
 }

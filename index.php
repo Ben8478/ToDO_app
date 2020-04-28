@@ -60,10 +60,6 @@ include "include/connect.php";
 
 
     <?php
-    $highestvalue = "SELECT MAX(list_no) from app where UserId='$id'";
-    $high = $mysqli->query($highestvalue);
-    $show = $high->fetch_assoc();
-    $maxid = $show['MAX(list_no)'];
 
 
 
