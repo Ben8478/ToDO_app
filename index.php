@@ -38,7 +38,7 @@ include "include/connect.php";
             <p id="start" class="side_bar_content"><a href="#" onclick="show_All()">All</a></p>
             <hr class="HL">
             </hr>
-           <p> Home</p>
+            <p id="start" class="side_bar_content"><a href="#" onclick="home()">Home</a></p>
             <hr class="HL">
             </hr>
 <button value="submit" id="btn" onclick="sign_out()"> Log out </button>
@@ -124,7 +124,7 @@ include "include/connect.php";
                 <div id="add_postA" class="add_post_content">
                     <form id='post_add_A'>
                         <span class="input-group-text">Description</span>
-                        <textarea rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <textarea id ="edit_content_A" rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
                         <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
                         <button type="submit" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
                     </form>
@@ -136,7 +136,7 @@ include "include/connect.php";
                 <div id="edit_post" class="edit_post">
                     <form id='edit_post_A'>
                         <span class="input-group-text">Edit Task</span>
-                        <textarea id = "edit_content"rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                        <textarea id = "edit_content" rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Edit endeavor"></textarea>
                         <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" >
                         <button type="submit" onclick="update()" id="add_post_content_button" name="post_add" value="post_add">Edit</button>
                     </form>
@@ -160,7 +160,11 @@ include "include/connect.php";
         document.getElementById('welcome').style.display = "none";
         document.getElementById('mission_text').style.display = "none";
     }
-
+    function home(){
+        document.getElementById('All_notes').style.display = "none";
+        document.getElementById('welcome').style.display = "block";
+        document.getElementById('mission_text').style.display = "block";
+    }
     function addendeavor() {
         document.getElementById('add_post').style.display = "block";
 
@@ -280,7 +284,7 @@ include "include/connect.php";
                 }
             });
         });
-
+        
     }
     function edit(myidE){
       
@@ -319,6 +323,7 @@ function update(){
           });
           
           document.getElementById('edit_post').style.display ="none" ;
+          
 }
 </script>
 <script>

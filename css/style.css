@@ -1,534 +1,552 @@
-/*Sidebar start*/
-
-.side_bar {
-    height: 100%;
-    width: 15%;
-    background-image: linear-gradient(to bottom, #75a8ff, #fff175);
-    position: fixed;
-    border-radius: 8px;
-    -webkit-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
-}
-
-.side_bar p {
-    margin-right: auto;
-    width: 100%;
-    list-style: none;
-    font-size: 20px;
-    text-align: center;
-    text-emphasis: bold;
-    font-family: 'Proza Libre', sans-serif;
-}
-
-.side_bar li a {
-    color: #282f3b;
-}
-
-#side_bar_header {
-    font-size: 20px;
-}
-
-.side_bar_content {
-    border-radius: 8px;
-}
-
-.side_bar_content a {
-    color: #282f3b;
-}
-
-.HL {
-    border: 0.5px solid #282f3b;
-}
-
-.logo {
-    margin-left: 30%;
-}
-
-#btn {
-    border-radius: 2px;
-    background-color: transparent;
-    width: 100%;
-    border: none;
-    -webkit-box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
-    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
-}
-
-
-/**************************Main app components***********************************/
-
-.buttons {
-    border-radius: 2px;
-    background-color: transparent;
-    width: 100%;
-    border: none;
-    -webkit-box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
-    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
-}
-
-.welcome {
-    display: inline-block;
-    margin-top: 5%;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-family: 'Proza Libre', sans-serif;
-}
-
-.icons {
-    width: 100%;
-}
-
-.icons p {
-    display: inline-block;
-    width: 20%;
-}
-
-.icons footer {
-    margin-top: 5%;
-    width: 47%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.mission_text {
-    margin-top: 5%;
-    width: 55%;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.8;
-}
-
-.main_app_header {
-    margin-left: 30%;
-    margin-top: 5%;
-    margin-bottom: 1%;
-    width: 30%;
-    text-align: center;
-    padding: 3%;
-    border-radius: 2px;
-    -webkit-box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
-}
-
-.main_app_thought_header {
-    margin-top: 5%;
-    margin-left: 30%;
-    width: 30%;
-    text-align: center;
-    padding: 3%;
-    border-radius: 8px;
-    -webkit-box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
-}
-
-.main_app_thought {
-    height: 400px;
-    display: inline-block;
-    margin: auto;
-    width: 70%;
-    border-radius: 8px;
-    display: none;
-}
-
-.main_app_today {
-    height: auto;
-    margin: auto;
-    width: 70%;
-    display: none;
-    border-radius: 8px;
-    margin-bottom: 5%;
-    display: inline-block;
-    display: none;
-}
-
-.header_main {
-    margin-top: 5%;
-    padding: 2%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    color: #282f3b;
-    text-align: center;
-    border-radius: 2px;
-    -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
-}
-
-.body_main {
-    background-image: linear-gradient(to left, #75a8ff, #fff175);
-}
-
-
-/**************************Signn in conent***********************************/
-
-.sign_in {
-    height: 200px;
-    margin-top: 3%;
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 3px;
-    -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
-}
-
-.sign_in label {
-    padding: 1%;
-}
-
-.sign_in input {
-    padding: 1%;
-}
-
-.sign_in_text {
-    font-size: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding: 10%;
-    border-radius: 1px;
-}
-
-.sign_in_button {
-    border-radius: 1px;
-    margin-top: 5%;
-    background-color: transparent;
-    width: 100%;
-    height: 50px;
-    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-}
-
-.sign_in_pop-up {
-    margin-top: 3%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-    border-radius: 2px;
-    display: none;
-    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    margin-bottom: 5%;
-}
-
-.sign_in_pop-up label {
-    padding: 1%;
-}
-
-.sign_in_pop-up input {
-    padding: 1%;
-}
-
-.sign_in_pop-up_button {
-    background-color: transparent;
-    width: 100%;
-    height: 50px;
-    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-}
-
-
-/**************************Post content***********************************/
-
-.post_title {
-    padding: 4%;
-    height: 50px;
-    width: 70%;
-    opacity: 0.8;
-    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    margin-left: 30%;
-    border-radius: 2px;
-}
-
-.post_title p {
-    width: 79%;
-    display: inline-block;
-}
-
-#sort_button {
-    opacity: 0.9;
-    border: none;
-    background-color: transparent;
-}
-
-.edit_button {
-    opacity: 0.9;
-    border: none;
-    background-color: transparent;
-}
-
-#edit_post {
-    display: none;
-}
-
-.post_content {
-    display: inline-block;
-    padding-bottom: 8%;
-    background-attachment: fixed;
-    width: 70%;
-    height: auto;
-    background-color: white;
-    opacity: 0.8;
-    border-radius: 2px;
-    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    margin-left: 30%;
-    margin-bottom: 5%;
-}
-
-.post_content li {
-    padding: 3%;
-    list-style: none;
-    width: 32%;
-    display: inline-block;
-    text-align: center;
-}
-
-#list_update {
-    padding: 3%;
-    list-style: none;
-    width: 32%;
-    display: inline-block;
-    text-align: center;
-}
-
-#post_button {
-    opacity: 0.9;
-    width: 100%;
-    border: none;
-    border-radius: 8px;
-    background-color: transparent;
-}
-
-.add_post {
-    display: inline-block;
-    width: 10%;
-}
-
-.add_postt {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: none;
-}
-
-.add_post_content {
-    margin-left: auto;
-    width: 100%;
-    background-color: white;
-    border-radius: 8px;
-    display: none;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#add_post_content_button {
-    width: 95%;
-    border-radius: 2px;
-    margin-top: 2%;
-    margin-left: 2%;
-    margin-bottom: 2%;
-    background-color: rgb(220, 220, 220);
-    -webkit-box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.74);
-}
-
-.dlt_button {
-    border: none;
-    border-radius: 8px;
-    background-color: transparent;
-}
-
-#edit_box {
-    width: 40%;
-    display: inline-block;
-    margin-top: 10%;
-    position: absolute;
-    z-index: 5;
-}
-
-#add_box {
-    width: 20%;
-    display: inline-block;
-    margin-top: 10%;
-    position: absolute;
-    z-index: 5;
-}
-
-
-/**************************Media query start***********************************/
-
-@media only screen and (max-width: 600px) {
-    .icons {
-        width: 100%;
-        display: none;
-    }
-    h1 {
-        width: 90%;
-    }
-    .subheader_main {
-        width: 70%;
-    }
-    .sign_in {
-        width: 70%;
-    }
-    .sign_in_pop-up {
-        width: 70%;
-    }
-    .side_bar {
-        width: 100%;
-        height: 50px;
-        display: inline-block;
-        margin-bottom: 10%;
-    }
-    .side_bar p {
-        display: inline-block;
-        font-size: 16px;
-        width: 10px;
-        margin-left: 15%;
-    }
-    #btn {
-        margin-left: 30%;
-        width: 30%;
-        display: inline-block;
-        font-size: 16px;
-        height: 50px;
-    }
-    h1 {
-        width: 100%;
-    }
-    #mission_text {
-        width: 100%;
-    }
-    #mission_paragraph {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #welcome {
-        margin-top: 30%;
-    }
-    #logo {
-        display: none;
-    }
-    .HL {
-        display: none;
-    }
-    .main_app_thought {
-        width: 100%;
-    }
-    .main_app_header {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 30%;
-    }
-    .buttons {
-        margin-bottom: 10%;
-    }
-    .post_content {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-    .post_content li {
-        width: 50%;
-    }
-    .post_title {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .post_title p {
-        width: 60%;
-        margin-left: 8%;
-    }
-    #add_box form {
-        width: 100%
-    }
-    #edit_box form {
-        width: 100%;
-    }
-    #add_box {
-        display: block;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: -22%;
-        position: relative;
-    }
-    #edit_box {
-        display: block;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        margin-top: -16%;
-    }
-}
-
-@media only screen and (device-width: 768px) {
-    .main_app_header {
-        margin-left: 38%;
-    }
-    .buttons {
-        margin-left: 20%;
-    }
-    .side_bar {
-        width: 20%;
-    }
-    .post_content {
-        width: 90%;
-        margin-left: 38%;
-    }
-    .post_content li {
-        width: 50%;
-    }
-    .post_title {
-        width: 90%;
-        margin-left: 38%;
-        padding-bottom: 8%;
-    }
-    .post_title p {
-        width: 60%;
-        margin-left: 8%;
-        margin-bottom: 8%;
-    }
-    #welcome {
-        margin-left: 15%;
-        width: 80%;
-    }
-    h1 {
-        font-size: 10px;
-    }
-    #mission_paragraph {
-        width: 100%;
-        margin-left: 15%;
-    }
-    .icons footer {
-        width: 40%;
-        display: inline-block;
-    }
-    .icons {
-        display: none;
-    }
-    #add_box form {
-        width: 100%;
-    }
-    #add_box {
-        width: 28%;
-        margin-right: 15%;
-        margin-top: 23%;
-    }
-    #edit_box {
-        width: 28%;
-        margin-right: 15%;
-        margin-top: 23%;
-    }
-    #edit_box form {
-        width: 100%;
-    }
-}
+   /*Sidebar start*/
+   
+   .side_bar {
+       height: 100%;
+       width: 15%;
+       background-image: linear-gradient(to bottom, #75a8ff, #fff175);
+       position: fixed;
+       border-radius: 8px;
+       -webkit-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
+   }
+   
+   .side_bar p {
+       margin-right: auto;
+       width: 100%;
+       list-style: none;
+       font-size: 20px;
+       text-align: center;
+       text-emphasis: bold;
+       font-family: 'Proza Libre', sans-serif;
+   }
+   
+   .side_bar li a {
+       color: #282f3b;
+   }
+   
+   #side_bar_header {
+       font-size: 20px;
+   }
+   
+   .side_bar_content {
+       border-radius: 8px;
+   }
+   
+   .side_bar_content a {
+       color: #282f3b;
+   }
+   
+   .HL {
+       border: 0.5px solid #282f3b;
+   }
+   
+   .logo {
+       margin-left: 30%;
+   }
+   
+   #btn {
+       border-radius: 2px;
+       background-color: transparent;
+       width: 100%;
+       border: none;
+       -webkit-box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
+       box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
+   }
+   /**************************Main app components***********************************/
+   
+   .buttons {
+       border-radius: 2px;
+       background-color: transparent;
+       width: 100%;
+       border: none;
+       -webkit-box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
+       box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
+   }
+   
+   .welcome {
+       display: inline-block;
+       margin-top: 5%;
+       width: 100%;
+       margin-left: auto;
+       margin-right: auto;
+       text-align: center;
+       font-family: 'Proza Libre', sans-serif;
+   }
+   
+   .icons {
+       width: 100%;
+   }
+   
+   .icons p {
+       display: inline-block;
+       width: 20%;
+   }
+   
+   .icons footer {
+       margin-top: 5%;
+       width: 47%;
+       margin-left: auto;
+       margin-right: auto;
+   }
+   
+   .mission_text {
+       margin-top: 5%;
+       width: 55%;
+       margin-left: auto;
+       margin-right: auto;
+       opacity: 0.8;
+   }
+   
+   .main_app_header {
+       margin-left: 30%;
+       margin-top: 5%;
+       margin-bottom: 1%;
+       width: 30%;
+       text-align: center;
+       padding: 3%;
+       border-radius: 2px;
+       -webkit-box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
+   }
+   
+   .main_app_thought_header {
+       margin-top: 5%;
+       margin-left: 30%;
+       width: 30%;
+       text-align: center;
+       padding: 3%;
+       border-radius: 8px;
+       -webkit-box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
+   }
+   
+   .main_app_thought {
+       height: 400px;
+       display: inline-block;
+       margin: auto;
+       width: 70%;
+       border-radius: 8px;
+       display: none;
+   }
+   
+   .main_app_today {
+       height: auto;
+       margin: auto;
+       width: 70%;
+       display: none;
+       border-radius: 8px;
+       margin-bottom: 5%;
+       display: inline-block;
+       display: none;
+   }
+   
+   .header_main {
+       margin-top: 5%;
+       padding: 2%;
+       margin-left: auto;
+       margin-right: auto;
+       width: 60%;
+       color: #282f3b;
+       text-align: center;
+       border-radius: 2px;
+       -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
+   }
+   
+   .body_main {
+       background-image: linear-gradient(to left, #75a8ff, #fff175);
+   }
+   /**************************Signn in conent***********************************/
+   
+   .sign_in {
+       height: 20%;
+       margin-top: 3%;
+       width: 30%;
+       margin-left: auto;
+       margin-right: auto;
+       border-radius: 3px;
+       -webkit-box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
+   }
+   
+   .sign_in label {
+       padding: 1%;
+   }
+   
+   .sign_in input {
+       padding: 1%;
+   }
+   
+   .sign_in_text {
+       font-size: 20px;
+       margin-left: auto;
+       margin-right: auto;
+       text-align: center;
+       padding: 10%;
+       border-radius: 1px;
+   }
+   
+   .sign_in_button {
+       border-radius: 1px;
+       margin-top: 5%;
+       background-color: transparent;
+       width: 100%;
+       height: 50px;
+       -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+   }
+   
+   .sign_in_pop-up {
+       margin-top: 3%;
+       margin-left: auto;
+       margin-right: auto;
+       width: 40%;
+       border-radius: 2px;
+       display: none;
+       -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       margin-bottom: 5%;
+   }
+   
+   .sign_in_pop-up label {
+       padding: 1%;
+   }
+   
+   .sign_in_pop-up input {
+       padding: 1%;
+   }
+   
+   .sign_in_pop-up_button {
+       background-color: transparent;
+       width: 100%;
+       height: 50px;
+       -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+   }
+   /**************************Post content***********************************/
+   
+   .post_title {
+       padding: 4%;
+       height: 50px;
+       width: 70%;
+       opacity: 0.8;
+       -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       margin-left: 30%;
+       border-radius: 2px;
+   }
+   
+   .post_title p {
+       width: 79%;
+       display: inline-block;
+   }
+   
+   #sort_button {
+       opacity: 0.9;
+       border: none;
+       background-color: transparent;
+   }
+   
+   .edit_button {
+       opacity: 0.9;
+       border: none;
+       background-color: transparent;
+   }
+   
+   #edit_post {
+       display: none;
+   }
+   
+   .post_content {
+       display: inline-block;
+       padding-bottom: 8%;
+       background-attachment: fixed;
+       width: 70%;
+       height: auto;
+       background-color: white;
+       opacity: 0.8;
+       border-radius: 2px;
+       -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
+       margin-left: 30%;
+       margin-bottom: 5%;
+   }
+   
+   .post_content li {
+       padding: 3%;
+       list-style: none;
+       width: 32%;
+       display: inline-block;
+       text-align: center;
+   }
+   
+   #list_update {
+       padding: 3%;
+       list-style: none;
+       width: 32%;
+       display: inline-block;
+       text-align: center;
+   }
+   
+   #post_button {
+       opacity: 0.9;
+       width: 100%;
+       border: none;
+       border-radius: 8px;
+       background-color: transparent;
+   }
+   
+   .add_post {
+       display: inline-block;
+       width: 10%;
+   }
+   
+   .add_postt {
+       width: 100%;
+       margin-left: auto;
+       margin-right: auto;
+       display: none;
+   }
+   
+   .add_post_content {
+       margin-left: auto;
+       width: 100%;
+       background-color: white;
+       border-radius: 8px;
+       display: none;
+       margin-left: auto;
+       margin-right: auto;
+   }
+   
+   #add_post_content_button {
+       width: 95%;
+       border-radius: 2px;
+       margin-top: 2%;
+       margin-left: 2%;
+       margin-bottom: 2%;
+       background-color: rgb(220, 220, 220);
+       -webkit-box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.74);
+       box-shadow: 5px 5px 15px -4px rgba(0, 0, 0, 0.74);
+   }
+   
+   .dlt_button {
+       border: none;
+       border-radius: 8px;
+       background-color: transparent;
+   }
+   
+   #edit_box {
+       width: 40%;
+       display: inline-block;
+       margin-top: 11.5%;
+       position: absolute;
+       z-index: 5;
+   }
+   
+   #add_box {
+       width: 20%;
+       display: inline-block;
+       margin-top: 11.5%;
+       position: absolute;
+       z-index: 5;
+   }
+   /**************************Media query start***********************************/
+   
+   @media only screen and (max-width: 600px) {
+       .header_main h1 {
+           font-size: 20.5px;
+       }
+       .header_main P {
+           display: none;
+       }
+       .header_main h6 {
+           font-size: 10px;
+       }
+       .header_main {
+           width: 90%;
+       }
+       .sign_in {
+           height: 0px;
+       }
+       .sign_in_text {
+           display: none;
+       }
+       .icons {
+           width: 100%;
+           display: none;
+       }
+       h1 {
+           width: 90%;
+       }
+       .subheader_main {
+           width: 70%;
+       }
+       .sign_in {
+           width: 70%;
+       }
+       .sign_in_pop-up {
+           width: 70%;
+       }
+       .side_bar {
+           width: 100%;
+           height: 50px;
+           display: inline-block;
+           margin-bottom: 10%;
+           z-index: 5;
+       }
+       .side_bar p {
+           display: inline-block;
+           font-size: 16px;
+           width: 10px;
+           margin-left: 15%;
+       }
+       #btn {
+           margin-left: 30%;
+           width: 30%;
+           display: inline-block;
+           font-size: 16px;
+           height: 50px;
+       }
+       h1 {
+           width: 100%;
+       }
+       #mission_text {
+           width: 100%;
+       }
+       #mission_paragraph {
+           width: 80%;
+           margin-left: auto;
+           margin-right: auto;
+       }
+       #welcome {
+           margin-top: 30%;
+       }
+       #logo {
+           display: none;
+       }
+       .HL {
+           display: none;
+       }
+       .main_app_thought {
+           width: 100%;
+       }
+       .main_app_header {
+           width: 90%;
+           margin-left: auto;
+           margin-right: auto;
+           margin-top: 30%;
+       }
+       .buttons {
+           margin-bottom: 10%;
+       }
+       .post_content {
+           width: 90%;
+           margin-left: auto;
+           margin-right: auto;
+           display: block;
+       }
+       .post_content li {
+           width: 50%;
+       }
+       .post_title {
+           width: 90%;
+           margin-left: auto;
+           margin-right: auto;
+       }
+       .post_title p {
+           width: 60%;
+           margin-left: 8%;
+       }
+       #add_box form {
+           width: 100%
+       }
+       #edit_box form {
+           width: 100%;
+       }
+       #add_box {
+           display: block;
+           width: 90%;
+           margin-left: auto;
+           margin-right: auto;
+           margin-top: -22%;
+           position: relative;
+       }
+       #edit_box {
+           display: block;
+           width: 90%;
+           margin-left: auto;
+           margin-right: auto;
+           position: relative;
+           margin-top: -16%;
+       }
+   }
+   
+   @media only screen and (device-width: 768px) {
+       .main_app_header {
+           margin-left: 38%;
+       }
+       .buttons {
+           margin-left: 20%;
+       }
+       .side_bar {
+           width: 20%;
+       }
+       .post_content {
+           width: 90%;
+           margin-left: 38%;
+       }
+       .post_content li {
+           width: 50%;
+       }
+       .post_title {
+           width: 90%;
+           margin-left: 38%;
+           padding-bottom: 8%;
+       }
+       .post_title p {
+           width: 60%;
+           margin-left: 8%;
+           margin-bottom: 8%;
+       }
+       #welcome {
+           margin-left: 15%;
+           width: 80%;
+       }
+       h1 {
+           font-size: 10px;
+       }
+       #mission_paragraph {
+           width: 100%;
+           margin-left: 15%;
+       }
+       .icons footer {
+           width: 40%;
+           display: inline-block;
+       }
+       .icons {
+           display: none;
+       }
+       #add_box form {
+           width: 100%;
+       }
+       #add_box {
+           width: 28%;
+           margin-right: 15%;
+           margin-top: 23%;
+       }
+       #edit_box {
+           width: 28%;
+           margin-right: 15%;
+           margin-top: 23%;
+       }
+       #edit_box form {
+           width: 100%;
+       }
+       .sign_in_text {
+           height: 0px;
+           width: 100%;
+       }
+       .sign_in_pop-up form {
+           width: 100%;
+       }
+   }
