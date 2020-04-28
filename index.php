@@ -319,7 +319,21 @@ include "include/connect.php";
     }
 
 function update(){
-    console.log(numberE);
+    $(document).ready(function() {
+        
+           var  form = $('#edit_post_A').serialize();
+             $.ajax({
+                  type: 'post',
+                 url: 'include/update.php',
+                 data:form,
+                 success: function(data) {
+ 
+                     document.getElementById(numberE).innerHTML= data;
+                  }
+              });
+          });
+          
+          document.getElementById('edit_post').style.display ="none" ;
 }
 </script>
 <script>
