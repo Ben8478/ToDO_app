@@ -12,7 +12,7 @@ $show =$maxid->fetch_assoc();
 $mId = $show['MAX(list_no)'] +1;
 
 $sqlcheck = " SELECT post FROM app where UserId ='$id' and post = '$content'";
-$sqlAdd = "INSERT INTO app (`UserId`, `post`, `date`, `post_no`, `list_no`,`delete_item`) VALUES ('$id', '$content', '$date', NULL,'$mId','0'); ";
+$sqlAdd = "INSERT INTO app (`UserId`, `post`, `date`, `post_no`, `list_no`,`delete_item`) VALUES ('$id', '$content', '$date', NULL,'$mId',null); ";
 $result = $mysqli->query($sqlcheck);
 
  if ($result->num_rows > 0) {
