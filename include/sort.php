@@ -14,7 +14,7 @@ if($sort->num_rows > 0){
     while($row = $sort->fetch_assoc()){
         
         echo "<div class=\"list_items\">" ;
-        echo "<li><button name =\"list\" id =\"$displayM\" type=\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button>".$row['post']."</li></div>";
+        echo "<li id =\"$displayM\"><button name =\"list\" id =\"$displayM\" type=\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button>".$row['post']."</li></div>";
     }
 
 }

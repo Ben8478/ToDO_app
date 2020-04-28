@@ -32,7 +32,7 @@ $result = $mysqli->query($sqlcheck);
     }
    
  
-     echo "<li>".$final_append."<br>Due on ".$date."<button id =\" $displayM\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button></li>";
+     echo "<li id = \"$displayM\">".$final_append."<br>Due on ".$date."<button id =\"$displayM\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button></li>";
  
 
 
