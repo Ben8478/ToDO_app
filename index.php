@@ -52,7 +52,7 @@ include "include/connect.php";
 
     <div class="mission_text" id="mission_text">
         <p id="mission_paragraph">Dictionary.com describes an Endeavor as something someone does or something someone has an effect on.My hope is that this application
-            will be able to help you to organize those do's and effects you have to be as productive in you'r everyday life as possible.<br> <br>~ Ben (Founder of the Endeavor Inventory)</p>
+            will be able to help you to organize those do's and effects you have to be as productive in your everyday life as possible.<br> <br>~ Ben (Founder of the Endeavor Inventory)</p>
         <button onclick="show_All()" name="submit" value="submit" type="submit" class="buttons">Let's Get Started!</button>
     </div>
 
