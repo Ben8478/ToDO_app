@@ -21,6 +21,4 @@ echo "</script>" ;
       $mysqli->query($sqlR);
   }
 }
-
-
 ?>

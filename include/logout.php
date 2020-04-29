@@ -1,17 +1,3 @@
-<?php 
-session_start();
-
-
-?>
-
-<?php
-
-
-
-header('content-type:text/plain');
-echo "hello";
-?>
-<?php 
-session_destroy();
-
-?>
+<?php session_start();?>
+    <?php header('content-type:text/plain');echo "hello";?>
+<?php session_destroy();?>
