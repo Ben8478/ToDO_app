@@ -494,7 +494,8 @@
         display: block;
     }
     .post_content li {
-        width: 100%;
+        width: 45%;
+        margin-left: 2%;
     }
     .post_title {
         width: 90%;
@@ -505,31 +506,26 @@
         width: 60%;
         margin-left: 8%;
     }
-    #add_box form {
-        width: 100%
-    }
-    #edit_box form {
+    #post_add_A {
         width: 100%;
+        grid-column-start: 1;
     }
-    #add_box {
-        display: block;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: -22%;
-        position: relative;
-    }
-    #edit_box {
-        display: block;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        position: relative;
-        margin-top: -16%;
+    #edit_post {
+        width: 100%;
+        grid-column-start: 1;
     }
 }
 
 @media only screen and (device-width: 768px) {
+    #post_add_A {
+        width: 60%;
+        grid-column-start: 2;
+        margin-top: 10%;
+    }
+    #edit_post {
+        width: 60%;
+        grid-column-start: 2;
+    }
     .main_app_header {
         margin-left: 38%;
     }
@@ -544,7 +540,7 @@
         margin-left: 38%;
     }
     .post_content li {
-        width: 50%;
+        width: 30%;
     }
     .post_title {
         width: 90%;
@@ -573,17 +569,6 @@
     }
     .icons {
         display: none;
-    }
-    #add_box form {
-        width: 300px;
-    }
-    #edit_box {
-        width: 28%;
-        margin-right: 15%;
-        margin-top: 23%;
-    }
-    #edit_box form {
-        width: 100%;
     }
     .sign_in_text {
         height: 0px;

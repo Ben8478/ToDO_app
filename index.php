@@ -214,6 +214,7 @@ function cancel(){
             });
         });
         document.getElementById('add_postA').style.display = "none";
+        document.getElementById('All_notes').style.display = "inline-block";
 
     }
     //this function sends the form data to insert.php with ajax
