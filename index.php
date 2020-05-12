@@ -47,8 +47,20 @@ include "include/connect.php";
         <!--onclick this button wil sign you out with an ajax function -->
         <!-----------------------------------------End of navbar section----------------------------------------------->
 
-    </div>
+</div>
     <!-----------------------------------------Start of welcoming text----------------------------------------------->
+    <div id="add_box">  
+        <div id="add_postA" class="add_post_content">
+            <form id='post_add_A'>
+                <span class="input-group-text">Description</span>
+                <textarea id="edit_content_A" rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
+                <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>">
+                <button type="submit" class="btn" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
+                <button type="submit" class="btn" onclick="cancel()" id="add_post_content_button" name="post_add" value="post_add">Cancel</button>
+            </form>
+        </div>
+    
+    </div>
     <div class="welcome" id="welcome">
         <h1>Welcome to Endeavor inventory.</h1>
     </div>
@@ -69,7 +81,7 @@ include "include/connect.php";
         <div class="main_app_header">
             <p><strong>All Endeavors</strong></p>
         </div>
-        <div class=post_title>
+        <div class=post_title id ="post_title">
             <p><strong></strong>
             </p>
             <div class="add_post" id="add_post_today">
@@ -94,18 +106,10 @@ include "include/connect.php";
                 <!-- Ends if statement-->
             </form>
         </div>
+  
         <!-----------------------------------------This section contains forms to received user input from either edit or add queries----------------------------------------------->
     </div>
-    <div id="add_box">
-        <div id="add_postA" class="add_post_content">
-            <form id='post_add_A'>
-                <span class="input-group-text">Description</span>
-                <textarea id="edit_content_A" rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>">
-                <button type="submit" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
-            </form>
-        </div>
-    </div>
+   
     <div id="edit_box">
         <div id="edit_post" class="edit_post">
             <form id='edit_post_A'>
@@ -118,7 +122,7 @@ include "include/connect.php";
     </div>
     <!-----------------------------------------End of form section----------------------------------------------->
     <!-----------------------------------------Icon footer section----------------------------------------------->
-    <div class="icons">
+    <div class="icons" id ='icons'>
         <footer>
             <p><img src="images/secure.png"><strong>Secure note storage</strong></p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/mobile.png"><strong>Mobile Friendly</strong></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/check.png"><strong>Complete your tasks</strong></p>
         </footer>
@@ -131,6 +135,7 @@ include "include/connect.php";
         document.getElementById('All_notes').style.display = "inline-block";
         document.getElementById('welcome').style.display = "none";
         document.getElementById('mission_text').style.display = "none";
+        document.getElementById('icons').style.display = "none";
     }
 
     function home() {
@@ -159,14 +164,17 @@ include "include/connect.php";
     }
 
     function addendeavorA() {
-        document.getElementById('add_postA').style.display = "block";
-
-
-
-
-
+        
+        document.getElementById('add_postA').style.display = "grid";
+        document.getElementById('All_notes').style.display = "none";
+        
     }
-
+function cancel(){
+    document.getElementById('add_postA').style.display = "none";
+        document.getElementById('All_notes').style.display = "inline-block";
+        document.getElementById('welcome').style.display = "none";
+        document.getElementById('mission_text').style.display = "none";
+}
     function add_today() {
         document.getElementById("add_post_today").style.display = "block";
     }
@@ -268,7 +276,7 @@ include "include/connect.php";
 
     function edit(myidE) {
         //this function passes the id of the button and sends this data to edit.php to enable the page to run the code on this specific id
-        let numberE = myidE.id;
+        numberE = myidE.id;
 
 
         $(document).ready(function() {
@@ -285,8 +293,10 @@ include "include/connect.php";
                 }
             });
         });
-        document.getElementById('edit_post').style.display = "inline-block";
-
+        document.getElementById('edit_box').style.display = "grid";
+        document.getElementById('All_notes').style.display = "none";
+        document.getElementById('welcome').style.display = "none";
+        document.getElementById('mission_text').style.display = "none";
     }
 
     function update() {
@@ -304,7 +314,8 @@ include "include/connect.php";
             });
         });
 
-        document.getElementById('edit_post').style.display = "none";
+        document.getElementById('edit_box').style.display = "none";
+        document.getElementById('All_notes').style.display = "inline-block";
         //this function sends form data captured by #edit_post_A and replaces the current value with the updated value    
     }
 </script>
