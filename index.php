@@ -67,10 +67,10 @@ include "include/connect.php";
     <!----------------------------------------- Start of content that will be displayd----------------------------------------------->
     <div class="main_app_thought" id="All_notes">
         <div class="main_app_header">
-            <p><strong>All your todo's</strong></p>
+            <p><strong>All Endeavors</strong></p>
         </div>
         <div class=post_title>
-            <p><strong>All Endeavors</strong>
+            <p><strong></strong>
             </p>
             <div class="add_post" id="add_post_today">
                 <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
@@ -268,7 +268,7 @@ include "include/connect.php";
 
     function edit(myidE) {
         //this function passes the id of the button and sends this data to edit.php to enable the page to run the code on this specific id
-        numberE = myidE.id;
+        let numberE = myidE.id;
 
 
         $(document).ready(function() {

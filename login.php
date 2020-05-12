@@ -14,17 +14,18 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body class="body_main" id="body_main_id">
+<body class="body_main_login" id="body_main_id">
   <div class="header_main">
     <h1>Endeavor Inventory</h1>
     <h6>A place to organize all your endeavors</h6>
-    <p> Not yet organized ? </p>
-    <a href="register.php">Sign up</a>
+
   </div>
   <div class="sign_in" id="sign_in_id">
-    <strong>
-      <p class="sign_in_text">Already organized? </p>
-    </strong>
+    
+      <p class="sign_in_text">Being organized is just one click away </p>
+   
+   
+    <button id='sign_in_button' class="sign_in_button" onclick=" location.href='register.php'">Sign up</button>
     <button id='sign_in_button' class="sign_in_button" onclick="show_pop()">Sign in</button>
   </div>
   <div class="sign_in_pop-up" id="sign_in_pop-up_id">
@@ -57,24 +58,17 @@
   }
 </script>
 <script>
-  $("#sign_in_button").mouseenter(function() {
-    $(this).css('background-color', '#75a8ff');
-    $(this).css('opacity', '0.5')
-  });
-  $("#sign_in_button").mouseleave(function() { //answers is selected once again and the mouseleave event is selected.
-    $(this).css("background-color", "transparent");
-    $(this).css('opacity', '1')
-  }); // Once the mouse leaves the div the color changes back to the original color
+ // Once the mouse leaves the div the color changes back to the original color
 
 
 
   $(".sign_in_pop-up_button").mouseenter(function() {
-    $(this).css('background-color', '#75a8ff');
-    $(this).css('opacity', '0.5')
+    $(this).css('background-color', '#ff758e');
+    
   });
   $(".sign_in_pop-up_button").mouseleave(function() { //answers is selected once again and the mouseleave event is selected.
     $(this).css("background-color", "transparent");
-    $(this).css('opacity', '1')
+   
   }); // Once the mouse leaves the div the color changes back to the original color
 </script>
 

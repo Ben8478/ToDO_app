@@ -19,13 +19,8 @@
     <h1>Endeavor Inventory</h1>
     <h6>A place to organize all your endeavors</h6>
   </div>
-  <div class="sign_in" id="sign_in_id">
-    <strong>
-      <p class="sign_in_text">Get organized! </p>
-    </strong>
-    <button class="sign_in_button" onclick="show_pop()">sign up</button>
-  </div>
-  <div class="sign_in_pop-up" id="sign_in_pop-up_id">
+ 
+  <div class="sign_in_pop-up_2" id="sign_in_pop-up_id">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <div class="form-group">
         <label for="exampleInputPassword1">Firstname: </label>
@@ -59,18 +54,6 @@
 </body>
 
 <script>
-  function show_pop() {
-    var x = 1;
-    if (x = 1) {
-
-      document.getElementById('sign_in_pop-up_id').style.display = "block";
-      x = 2;
-      document.getElementById('sign_in_id').style.display = 'none';
-    } else {
-      document.getElementById('sign_in_pop-up_id').style.display = "none";
-    }
-
-  }
 
   function PW_check() {
 

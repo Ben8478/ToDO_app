@@ -15,10 +15,13 @@ echo "alert('This email already exists')";
 echo "</script>" ;
   }
   else {
+    $value = NULL;
+
       $password_E= password_hash($password, PASSWORD_DEFAULT);
-      $sqlR = "INSERT INTO users (`id`, `firstname`, `lastname`, `email`, `password`)
-      values(null,'$firstname','$surname','$email',' $password_E')";
-      $mysqli->query($sqlR);
+      $stmt = $mysqli->prepare("INSERT INTO users (`id`, `firstname`, `lastname`, `email`, `password`)
+      values(?,?,?,?,?)");
+      $stmt->bind_param('issss',$value,$firstname,$surname,$email,$password_E);
+      $stmt->execute();
   }
 }
 ?>
