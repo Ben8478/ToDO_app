@@ -5,13 +5,13 @@ $no =$_SESSION['post_no'];
 $new = $_POST['content'];
 $date = $_POST['date'];
 
-$sqlU ="UPDATE app SET post ='$new' WHERE post_no = '$no' ";
-
-$executeU =$mysqli->query($sqlU);
-
-
+$sqlU =$mysqli->prepare("UPDATE app SET post =? WHERE post_no = ? ");
+$sqlU->bind_param('si',$new,$no);
+$sqlU->execute();
 
 
-echo $new."<br>". $date."<br><button id = \"$no\" onclick=\"edit(this)\" class = \"edit_button\"><img src=\"images/edit.png\"></button><button id =\"$no\"name =\"submit\" class=\"dlt_button\" onclick=\"deleteA(this)\"><img src=\"images/delete.png\"></button>";
+
+
+echo "<hr class=\"list_hr\"><p>".$new."</p>";
 
 ?>

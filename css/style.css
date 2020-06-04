@@ -5,7 +5,6 @@
     width: 15%;
     background-color: #75a8ff;
     position: fixed;
-    border-radius: 8px;
     -webkit-box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.74);
 }
@@ -33,11 +32,12 @@
 }
 
 .side_bar_content a {
-    color: #282f3b;
+    color: White;
 }
 
 .HL {
     border: 0.5px solid #282f3b;
+    width: 100%;
 }
 
 .logo {
@@ -46,15 +46,18 @@
 
 #btn {
     border-radius: 2px;
-    background-color: transparent;
     width: 100%;
-    border: none;
+    background-color: #ff758e;
     -webkit-box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
     box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.74);
 }
 
 
 /**************************Main app components***********************************/
+
+.due_text {
+    margin-left: 60%;
+}
 
 .buttons {
     border-radius: 2px;
@@ -73,22 +76,16 @@
     margin-right: auto;
     text-align: center;
     font-family: 'Proza Libre', sans-serif;
+    color: black;
 }
 
 .icons {
     width: 100%;
-}
-
-.icons p {
-    display: inline-block;
-    width: 20%;
-}
-
-.icons footer {
-    margin-top: 5%;
-    width: 47%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
 .mission_text {
@@ -97,55 +94,69 @@
     margin-left: auto;
     margin-right: auto;
     opacity: 0.8;
+    color: black;
 }
 
 .main_app_header {
-    margin-left: 30%;
-    margin-top: 5%;
+    margin-top: 10%;
     margin-bottom: 1%;
-    width: 30%;
+    width: 100%;
     text-align: center;
-    padding: 3%;
+    padding-top: 2%;
     border-radius: 2px;
     -webkit-box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 10px -3px rgba(0, 0, 0, 0.74);
-    background-color: #fff175;
-    opacity: 0.8;
+    background-color: #fff493;
 }
-
-.main_app_thought_header {
-    margin-top: 5%;
-    margin-left: 30%;
-    width: 30%;
-    text-align: center;
-    padding: 3%;
-    border-radius: 8px;
-    -webkit-box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 4px 10px -1px rgba(0, 0, 0, 0.74);
+.main_app_header p{
+font-size: 20px;
 }
-
+.login_header{
+height: 790px;
+width: 100%;
+position: absolute;
+background-image: linear-gradient(45deg,#89bef7 1%,#007bff);
+transform:skewy(26deg) translateY(-410px);
+z-index:-1;
+}
+#login_text{
+    position: absolute;
+    z-index: 1;
+    margin-left:50%;
+    margin-top: 10%;
+    width: 40%;
+ 
+    animation: fadein 1s;
+}
+@keyframes fadein{
+    from{margin-left:5%};
+    to {margin-left:50%}
+}
 .main_app_thought {
     height: 400px;
     display: inline-block;
-    margin: auto;
-    width: 70%;
+    margin-left: auto;
+    margin-right: 5%;
+    
+    width: 75%;
     border-radius: 8px;
     display: none;
+    flex-direction: column;
 }
 
 .main_app_today {
     height: auto;
     margin: auto;
-    width: 70%;
+    width: 80%;
     display: none;
     border-radius: 8px;
     margin-bottom: 5%;
-    display: inline-block;
     display: none;
+    display: flex;
 }
 
 .header_main {
-    background-color: #fff175;
+    background-color: #fff493;
     opacity: 0.8;
     padding: 1%;
     margin-left: auto;
@@ -158,29 +169,48 @@
     box-shadow: 5px 5px 15px 3px rgba(0, 0, 0, 0.74);
 }
 
-.body_main {
-    background-color: #c9d7ff;
-}
-
-.body_main_login {
-    background-color: #c9d7ff;
-}
 
 
 /**************************Signn in conent***********************************/
 
 .sign_in {
-    background-color: #ffffff;
-    height: 220px;
-    margin-top: 10%;
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 3px;
-    -webkit-box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.74)
-}
 
+    position: absolute;
+    width: 30%;
+    margin-left: 5%;
+    border-radius: 3px;
+    bottom: 150px;
+    animation: fadeout 1s;
+
+}
+@keyframes fadeout{
+from{margin-left:50%};
+to {margin-left: 5%;}
+}
+.sign_in h3{
+    margin-top:8%;
+    font-size: 17px;
+}
+#modal_2{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+   
+}
+#modal_3{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+   
+}
 .sign_in label {
     padding: 1%;
 }
@@ -189,36 +219,33 @@
     padding: 1%;
 }
 
+#button_content {
+    width: 50%;
+}
+
 .sign_in_text {
     padding: 3%;
     background-color: #75a8ff;
-    font-size: 18px;
+    font-size: 25px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border-radius: 1px;
+    border-radius: 4px;
+    padding: 5%;
 }
 
-.sign_in_button {
-    border-radius: 1px;
-    margin-left: 20%;
-    margin-top: 5%;
-    background-color: #ff758e;
-    width: 60%;
-    height: 50px;
-    -webkit-box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.74);
-    box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.74)
-}
+
 
 .sign_in_pop-up {
     background-color: #ffffff;
-    display: none;
+   
     height: auto;
-    margin-top: 3%;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
-    border-radius: 2px;
+    width: 25%;
+    border-radius: 4px;
+    padding: 2%;
     -webkit-box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 8px -2px rgba(0, 0, 0, 0.74);
     margin-bottom: 5%;
@@ -238,14 +265,14 @@
 }
 
 .sign_in_pop-up label {
-    padding: 1%;
-    background-color: #75a8ff;
+    padding: 5%;
     width: 100%;
+    font-size: 15px;
     margin-bottom: 0%;
 }
 
 .sign_in_pop-up input {
-    padding: 1%;
+    padding: 6%;
 }
 
 .sign_in_pop-up_button {
@@ -260,26 +287,47 @@
 /**************************Post content***********************************/
 
 .post_title {
-    background-color: #fff175;
-    padding: 4%;
-    height: 50px;
-    width: 70%;
-    opacity: 0.8;
+    background-color: #fff493;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    width: 100%;
     -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    margin-left: 30%;
     border-radius: 2px;
 }
 
 .post_title p {
-    width: 79%;
+    text-align: end;
+}
+
+#add_items {
+    width: 93.5%;
     display: inline-block;
 }
 
 #sort_button {
     opacity: 0.9;
     border: none;
+    border-radius: 8px;
     background-color: transparent;
+    grid-column-start: 2;
+}
+
+#sort_button img {
+    width: 65%;
+    justify-content: flex-end;
+}
+
+#post_button {
+    opacity: 0.9;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    display: inline-block;
+}
+
+#post_button img {
+    width: 60%;
 }
 
 .edit_button {
@@ -291,46 +339,67 @@
 .post_content {
     display: inline-block;
     padding-bottom: 8%;
-    background-attachment: fixed;
-    width: 70%;
+    width: 100%;
     height: auto;
     background-color: white;
-    opacity: 0.8;
     border-radius: 2px;
     -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
     box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.74);
-    margin-left: 30%;
-    margin-bottom: 5%;
-    z-index: -1;
 }
 
-.post_content li {
-    padding: 3%;
-    list-style: none;
-    width: 32%;
-    display: inline-block;
-    text-align: center;
-}
-
-#list_update {
-    padding: 3%;
-    list-style: none;
-    width: 32%;
-    display: inline-block;
-    text-align: center;
-}
-
-#post_button {
-    opacity: 0.9;
+.post_content form {
     width: 100%;
-    border: none;
-    border-radius: 8px;
-    background-color: transparent;
+}
+
+.list_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.button_content {
+    align-items: flex-end;
+    display: inline-block;
+}
+
+.button_position {
+    width: 100%;
+    margin-left: auto;
+}
+
+.list_items {
+    list-style: none;
+    height: auto;
+    overflow-wrap: break-word;
+    padding-left: 2%;
+}
+
+.list_items li {
+    width: 92%;
+    display: inline-block;
+}
+
+.list_hr {
+    width: 90%;
+    margin-left: 0;
+    color: black;
+}
+
+.due_date {
+    margin-top: 1%;
+    width: 9%;
+    margin-left: 1%;
+    background-color: #ff758e;
+    color: white;
+    padding: 0.3%;
+    opacity: 0.6;
+    border-radius: 5px;
+    font-size: 12px;
 }
 
 .add_post {
     display: inline-block;
-    width: 10%;
+    justify-content: center;
+    align-items: center;
 }
 
 .add_postt {
@@ -339,15 +408,20 @@
     margin-right: auto;
 }
 
-.add_post_content {
-    width: 400px;
-    height: 500px;
-    background-color: white;
-    border-radius: 8px;
-    display: none;
-    z-index: 1;
-}
 
+.card{
+    background-color: #ffffff;
+   
+    height: auto;
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-radius: 4px;
+    padding: 5%;
+
+    
+}
 #add_post_content_button {
     width: 100%;
     border-radius: 2px;
@@ -371,14 +445,13 @@
     position: absolute;
     top: 0;
     display: none;
-    grid-template-columns: 40% 10% 50%;
+    z-index: 1;
 }
 
 #edit_post {
     width: 35%;
     margin-top: 30%;
     grid-column-start: 2;
-    grid-column-end: 4;
 }
 
 #add_postA {
@@ -388,11 +461,12 @@
     position: absolute;
     top: 0;
     display: none;
+    z-index: 1;
     grid-template-columns: 40% 10% 50%;
 }
 
 #post_add_A {
-    width: 35%;
+    width: 40%;
     margin-top: 30%;
     grid-column-start: 2;
     grid-column-end: 4;
@@ -449,7 +523,7 @@
         margin-left: 15%;
     }
     #btn {
-        margin-left: 30%;
+        margin-left: 20%;
         width: 30%;
         display: inline-block;
         font-size: 16px;
@@ -479,7 +553,7 @@
         width: 100%;
     }
     .main_app_header {
-        width: 90%;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 30%;
@@ -488,22 +562,26 @@
         margin-bottom: 10%;
     }
     .post_content {
-        width: 90%;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
         display: block;
     }
+    .due_date {
+        width: 22%;
+        margin-top: 2%;
+    }
     .post_content li {
-        width: 45%;
+        width: 100%;
         margin-left: 2%;
     }
     .post_title {
-        width: 90%;
+        width: 95%;
         margin-left: auto;
         margin-right: auto;
     }
     .post_title p {
-        width: 60%;
+        width: 95%;
         margin-left: 8%;
     }
     #post_add_A {
@@ -514,6 +592,34 @@
         width: 100%;
         grid-column-start: 1;
     }
+    .list_items li {
+        width: 100%;
+    }
+    .login_header{
+        height: 600px;
+        width: 100%;
+        position: absolute;
+        background-image: linear-gradient(45deg,#89bef7 1%,#007bff);
+        transform:skewy(26deg) translateY(-410px);
+        z-index:-1;
+        }
+        #login_text h1{
+            position: absolute;
+            z-index: 1;
+            
+            font-size: 30px;
+        
+            animation: fadein 1s;
+        }
+        #login_text h5{display: none;}
+        .sign_in {
+            bottom:200px;
+        }
+        #add_items{
+            width: 50%;
+            margin-left: 32%;
+        }
+    
 }
 
 @media only screen and (device-width: 768px) {
@@ -522,30 +628,39 @@
         grid-column-start: 2;
         margin-top: 10%;
     }
+    #add_items{
+        width: 50%;
+        margin-left: 40%;
+    }
+    .due_date {
+        width: 18%;
+        margin-top: 2%;
+    }
     #edit_post {
         width: 60%;
         grid-column-start: 2;
     }
     .main_app_header {
-        margin-left: 38%;
+        margin-left: 12%;
+        width:92%;
     }
     .buttons {
-        margin-left: 20%;
+        margin-left: 12%;
     }
     .side_bar {
         width: 20%;
     }
     .post_content {
-        width: 90%;
-        margin-left: 38%;
+        width:92%;
+        margin-left: 12%;
     }
     .post_content li {
-        width: 30%;
+        width: 80%;
     }
     .post_title {
-        width: 90%;
-        margin-left: 38%;
-        padding-bottom: 8%;
+        width:92%;
+        margin-left: 12%;
+        
     }
     .post_title p {
         width: 60%;
@@ -577,4 +692,29 @@
     .sign_in_pop-up form {
         width: 100%;
     }
+    .sign_in_pop-up{
+        width:50%;
+        margin-top: 2%;
+    }
+    .login_header{
+        height: 600px;
+        width: 100%;
+        position: absolute;
+        background-image: linear-gradient(45deg,#89bef7 1%,#007bff);
+        transform:skewy(26deg) translateY(-410px);
+        z-index:-1;
+        }
+        #login_text h1{
+            position: absolute;
+            z-index: 1;
+            margin-left:20%;
+            font-size: 30px;
+            margin-top: 10%;
+            width: 100%; 
+            animation: fadein 1s;
+        }
+        #login_text h5{display: none;}
+        .sign_in {
+            bottom:5px;
+        }
 }

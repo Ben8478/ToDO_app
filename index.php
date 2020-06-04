@@ -35,39 +35,45 @@ include "include/connect.php";
         <img id="logo" class="logo" src="images/logo.png">
 
         <hr class="HL">
-        </hr>
-        <p id="start" class="side_bar_content"><a href="#" onclick="show_All()">All</a></p>
+        
+        <p id="start" class="side_bar_content"><a href="#" onclick="home()">Home</a></p>
         <!--contains an onclick linked to a javascript function to show all the notes-->
         <hr class="HL">
-        </hr>
-        <p id="start" class="side_bar_content"><a href="#" onclick="home()">Home</a></p><!-- onclick that displays the content on the homepage -->
+      
+        <p id="start" class="side_bar_content"><a href="#"  onclick="show_All()">Tasks</a></p><!-- onclick that displays the content on the homepage -->
         <hr class="HL">
-        </hr>
-        <button value="submit" id="btn" onclick="sign_out()"> Log out </button>
+
+        <button type="button"onclick="sign_out()" id = "btn" class="btn btn-primary logout">Log out</button>
+       
         <!--onclick this button wil sign you out with an ajax function -->
         <!-----------------------------------------End of navbar section----------------------------------------------->
 
 </div>
     <!-----------------------------------------Start of welcoming text----------------------------------------------->
     <div id="add_box">  
+    
         <div id="add_postA" class="add_post_content">
+        
             <form id='post_add_A'>
+            <div class="card">
                 <span class="input-group-text">Description</span>
                 <textarea id="edit_content_A" rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Endeavor description"></textarea>
-                <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>">
-                <button type="submit" class="btn" onclick="insert()" id="add_post_content_button" name="post_add" value="post_add">Add</button>
-                <button type="submit" class="btn" onclick="cancel()" id="add_post_content_button" name="post_add" value="post_add">Cancel</button>
+                <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" value="<?php echo date("Y-m-d") ?>">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="insert()" name="post_add" value="post_add">Add</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="cancel()" name="post_add" value="post_add">Cancel</button>
+                </div>
             </form>
         </div>
+        </div>
     
-    </div>
     <div class="welcome" id="welcome">
         <h1>Welcome to Endeavor inventory.</h1>
     </div>
     <div class="mission_text" id="mission_text">
         <p id="mission_paragraph">Dictionary.com describes an Endeavor as something someone does or something someone has an effect on.My hope is that this application
             will be able to help you to organize those do's and effects you have to be as productive in your everyday life as possible.<br> <br>~ Ben (Founder of the Endeavor Inventory)</p>
-        <button onclick="show_All()" name="submit" value="submit" type="submit" class="buttons">Let's Get Started!</button>
+            <button onclick="show_All()" type="button" class="btn btn-primary btn-lg btn-block">Let's Get Started</button>
+       
     </div>
     <!-----------------------------------------End of welcoming text ----------------------------------------------->
     <?php
@@ -79,60 +85,70 @@ include "include/connect.php";
     <!----------------------------------------- Start of content that will be displayd----------------------------------------------->
     <div class="main_app_thought" id="All_notes">
         <div class="main_app_header">
-            <p><strong>All Endeavors</strong></p>
+            <p><strong>Tasks</strong></p>
         </div>
         <div class=post_title id ="post_title">
-            <p><strong></strong>
-            </p>
-            <div class="add_post" id="add_post_today">
-                <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
-            </div>
-            <button id="sort_button" onclick="sort()"><img src="images/sort.png"></button>
+      
+          <button name="submit" value="submit" type="submit" id="post_button" onclick="addendeavorA()"><img src="images/add.png"></button>
+             <p id = "add_items">
+            <button id="sort_button" onclick="sort()"><img src="images/sort.png"></button></p>
         </div>
         <div class="list_items post_content" id="post_content">
             <form id="all_edit">
-                <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id'"; ?>
+                <?php $sqlA = "SELECT all*  FROM  app where UserId = '$id' ORDER BY app.date ASC ";?>
                 <!--SQL query to select all content from specific user-->
                 <?php $resultA = $mysqli->query($sqlA) ?>
                 <?php if ($resultA->num_rows > 0) : ?>
                     <!--if statement is true it will execite the following -->
+                    
                     <?php while ($rowA = $resultA->fetch_assoc()) : ?>
                         <!--While rows exist the query will continue to execute -->
                         <!-----------------------------------------This section echoes out each element of the database as li items and gives relevant id to button for functionality----------------------------------------------->
-                        <li id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?> <br>Due on <?php echo $rowA['date']; ?><br><button id="<?php echo $rowA['post_no'] ?>" onclick="edit(this)" class="edit_button"><img src="images/edit.png"></button><button name="submit" id="<?php echo $rowA['post_no'] ?>" class="dlt_button" onclick="deleteA(this)"><img src="images/delete.png"></button></li>
+                        <div class="due_date" ><?php echo $rowA['date']; ?></div>
+                        <hr class="list_hr">
+                      <div class="list_div"><li class ="list_items" id="<?php echo $rowA['post_no'] ?>"><?php echo $rowA['post'] ?></li><div class ="button_content"><div class = "button_position"><button id="<?php echo $rowA['post_no'] ?>" onclick="edit(this)" class="edit_button"><img src="images/edit.png"></button><button name="submit" id="<?php echo $rowA['post_no'] ?>" class="dlt_button" onclick="deleteA(this)"><img src="images/delete.png"></button></div></div>
+                      </div>
+                 
+                      <hr class="list_hr">
                     <?php endwhile ?>
                     <!--Ends the while loop-->
                 <?php endif ?>
                 <!-- Ends if statement-->
+                
             </form>
-        </div>
+        
   
         <!-----------------------------------------This section contains forms to received user input from either edit or add queries----------------------------------------------->
     </div>
-   
+                    </div>
     <div id="edit_box">
         <div id="edit_post" class="edit_post">
+        <div class="card">
             <form id='edit_post_A'>
                 <span class="input-group-text">Edit Task</span>
                 <textarea id="edit_content" rows='5' name="content" class="form-control" aria-label="With textarea" placeholder="Edit endeavor"></textarea>
-                <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>">
-                <button type="submit" onclick="update()" id="add_post_content_button" name="post_add" value="post_add">Edit</button>
+                <input name="date" class="form-control" type="date" min="<?php echo date("Y-m-d") ?>" value="<?php echo date("Y-m-d") ?>">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="update()"  name="post_add" value="post_add">Update</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="cancelEdit()" name="post_add" value="post_add">Cancel</button>           
             </form>
+        </div>
         </div>
     </div>
     <!-----------------------------------------End of form section----------------------------------------------->
     <!-----------------------------------------Icon footer section----------------------------------------------->
-    <div class="icons" id ='icons'>
+  
         <footer>
-            <p><img src="images/secure.png"><strong>Secure note storage</strong></p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/mobile.png"><strong>Mobile Friendly</strong></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<p><img src="images/check.png"><strong>Complete your tasks</strong></p>
+        <div class="icons" id ='icons'>
+        <div ><p><img src="images/secure.png"><strong>Secure note storage</strong></p> </div><div><p><img src="images/mobile.png"><strong>Mobile Friendly</strong></p> </div><div><p><img src="images/check.png"><strong>Complete your tasks</strong></p> </div>
+            </div>
         </footer>
-    </div>
+   
     <!-----------------------------------------End of footer section----------------------------------------------->
 </body>
 <script>
     function show_All() {
         //A function that hides the welcome text and displays the content
-        document.getElementById('All_notes').style.display = "inline-block";
+        document.getElementById('All_notes').style.display = "flex";
         document.getElementById('welcome').style.display = "none";
         document.getElementById('mission_text').style.display = "none";
         document.getElementById('icons').style.display = "none";
@@ -140,7 +156,7 @@ include "include/connect.php";
 
     function home() {
         document.getElementById('All_notes').style.display = "none";
-        document.getElementById('welcome').style.display = "block";
+        document.getElementById('welcome').style.display = "inline-block";
         document.getElementById('mission_text').style.display = "block";
         //A function that hides the content and displays the welcome text
     }
@@ -171,29 +187,29 @@ include "include/connect.php";
     }
 function cancel(){
     document.getElementById('add_postA').style.display = "none";
-        document.getElementById('All_notes').style.display = "inline-block";
+        document.getElementById('All_notes').style.display = "flex";
         document.getElementById('welcome').style.display = "none";
         document.getElementById('mission_text').style.display = "none";
+}
+function cancelEdit(){
+    document.getElementById('add_postA').style.display = "none";
+        document.getElementById('All_notes').style.display = "flex";
+        document.getElementById('welcome').style.display = "none";
+        document.getElementById('mission_text').style.display = "none";
+        document.getElementById('edit_box').style.display = "none";
 }
     function add_today() {
         document.getElementById("add_post_today").style.display = "block";
     }
 
     function sign_out() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'include/logout.php');
-        xhr.onreadystatechange = function() {
-            var done = 4;
-            var ok = 200;
-            if (xhr.readyState === done) {
-                if (xhr.status === ok) {
-                    console.log(this.responseText);
-                } else {
-                    console.log('Error:' + xhr.status);
-                }
-            }
-        };
-        xhr.send(null);
+        $(document).ready(function() {
+            $.ajax({
+                type: 'post',
+                url: 'include/logout.php',
+
+            });
+        });
     }
     //this function signs the user out of his session
 </script>
@@ -214,7 +230,7 @@ function cancel(){
             });
         });
         document.getElementById('add_postA').style.display = "none";
-        document.getElementById('All_notes').style.display = "inline-block";
+        document.getElementById('All_notes').style.display = "flex";
 
     }
     //this function sends the form data to insert.php with ajax
@@ -243,7 +259,7 @@ function cancel(){
                 }),
                 success: function(data) {
 
-                    $('#post_content').append(data);
+                    $('.list_div').prepend(data);
                 }
             });
         });
@@ -316,7 +332,7 @@ function cancel(){
         });
 
         document.getElementById('edit_box').style.display = "none";
-        document.getElementById('All_notes').style.display = "inline-block";
+        document.getElementById('All_notes').style.display = "flex";
         //this function sends form data captured by #edit_post_A and replaces the current value with the updated value    
     }
 </script>

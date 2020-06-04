@@ -1,3 +1,4 @@
 <?php session_start();?>
-    <?php header('content-type:text/plain');echo "hello";?>
+
+    <?php header('Location:./login.php')?>
 <?php session_destroy();?>
