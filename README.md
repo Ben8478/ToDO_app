@@ -3,7 +3,7 @@
 ## What it is
 #### This app Allows you to create a list of things you need to do, sort your list, edit your list and remove items from your list.
 
-#### Technologies used are, html, php, javascipt, jQuery and Ajax.
+#### Technologies used are, html, css,PHP, Javascipt, jQuery and Ajax.
 
 #### once you land on the login page you can either login if you are already a user or register if you are net yet a user.
 
