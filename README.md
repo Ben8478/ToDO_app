@@ -8,7 +8,8 @@
 - JavaScript ES6
 - jQuery 
 - Ajax
-- MySQL
+- MySQL 8
+- Bootstrap 4
 
 ### Launch
 Once you land on the login page you can either login if you are already a user or register if you are net yet a user.
