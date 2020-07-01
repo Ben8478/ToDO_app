@@ -2,10 +2,10 @@
 ## This app Allows you to create a list of things you need to do, sort your list, edit your list and remove items from your list.
 
 ### Technologies
-- html
-- css 
-- PHP 
-- JavaScript
+- HTML5
+- CSS3
+- PHP7
+- JavaScript ES6
 - jQuery 
 - Ajax
 
