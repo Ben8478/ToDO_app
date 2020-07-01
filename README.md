@@ -2,12 +2,13 @@
 ## This app Allows you to create a list of things you need to do, sort your list, edit your list and remove items from your list.
 
 ### Technologies
-- HTML5
-- CSS3
-- PHP7
+- HTML 5
+- CSS 3
+- PHP  7
 - JavaScript ES6
 - jQuery 
 - Ajax
+- MySQL
 
 ### Launch
 Once you land on the login page you can either login if you are already a user or register if you are net yet a user.
